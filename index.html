@@ -3,557 +3,305 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>空き家管理・草刈り・剪定｜小川町・越生町・鳩山町・ときがわ町｜OGAWA GREEN</title>
-<meta name="description" content="小川町・越生町・鳩山町・ときがわ町を中心に草刈り・剪定・伐採・空き家管理に対応。見積もり無料。電話・LINEでお気軽にご相談ください。">
-
+<title>OGAWA GREEN｜庭の整理・草刈り・剪定・伐採抜根</title>
+<meta name="description" content="小川町・越生町・鳩山町・ときがわ町を中心に、庭の整理・草刈り・剪定・刈り込み・伐採・抜根に対応。若さと行動力で丁寧に対応します。見積もり無料。">
 <style>
-*{
-  box-sizing:border-box;
+:root{
+  --green:#2e7d32;
+  --green-soft:#72c075;
+  --green-pale:#eff9ee;
+  --green-bg:#f7fbf6;
+  --green-deep:#215c28;
+  --yellow:#f4d96b;
+  --text:#2d332d;
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(46,125,50,.10);
+  --radius:24px;
 }
-
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{
   margin:0;
-  font-family:"Yu Gothic","Meiryo",sans-serif;
-  background:#f2f5f2;
-  color:#222;
-  line-height:1.9;
-  font-size:17px;
-  padding-bottom:90px;
+  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,#f9fdf8 0%,#f3faf2 100%);
+  line-height:1.85;
+  padding-bottom:88px;
 }
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;height:auto;}
 
-img{
-  max-width:100%;
-  height:auto;
-  display:block;
+/* loading */
+#loading{
+  position:fixed;
+  inset:0;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:16px;
+  z-index:9999;
+  transition:opacity .5s ease, visibility .5s ease;
 }
+#loading.hide{opacity:0;visibility:hidden;}
+.loadingLogoWrap{
+  width:108px;height:108px;border-radius:28px;
+  border:4px solid var(--green);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow);
+  animation:popIn .9s ease both, floatY 2.8s ease-in-out infinite;
+  background:#fff;
+}
+.loadingLogo{
+  font-size:44px;font-weight:800;color:var(--green);
+  letter-spacing:.04em;
+}
+.loadingText{font-weight:700;color:var(--green-deep);letter-spacing:.08em;}
+@keyframes popIn{0%{transform:scale(.85);opacity:0;}100%{transform:scale(1);opacity:1;}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
-a{
-  color:inherit;
+/* decorative */
+.bgLeaf,
+.bgLeaf2,
+.bgLeaf3{
+  position:absolute;
+  opacity:.18;
+  pointer-events:none;
+  animation:leafFloat 4s ease-in-out infinite;
 }
+.bgLeaf{top:28px;left:20px;font-size:42px;}
+.bgLeaf2{top:36px;right:28px;font-size:36px;animation-delay:.8s;}
+.bgLeaf3{bottom:10px;right:16%;font-size:30px;animation-delay:1.4s;}
+@keyframes leafFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(4deg);}}
 
 header{
-  background:linear-gradient(135deg,#2e7d32,#3f9a46);
-  color:white;
-  text-align:center;
-  padding:72px 20px;
+  position:relative;
+  overflow:hidden;
+  padding:28px 16px 56px;
 }
-
-header h1{
-  font-size:38px;
-  margin:0 0 10px;
-  line-height:1.4;
-}
-
-header p{
-  font-size:18px;
-  margin:8px 0;
-}
-
-.btnWrap{
-  margin-top:22px;
-}
-
-.btn,
-.btnLine{
-  display:inline-block;
-  padding:14px 26px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  margin:8px 6px 0;
-  font-size:17px;
-}
-
-.btn{
-  background:white;
-  color:#2e7d32;
-}
-
-.btnLine{
-  background:#06c755;
-  color:white;
-}
-
-section{
-  max-width:960px;
-  margin:24px auto 0;
-  background:white;
-  padding:36px;
-  border-radius:14px;
-  box-shadow:0 4px 14px rgba(0,0,0,0.05);
-}
-
-h2{
-  border-left:6px solid #2e7d32;
-  padding-left:12px;
-  font-size:28px;
-  margin:0 0 20px;
-  line-height:1.5;
-}
-
-.problem,
-.flow,
-.faq,
-.area,
-.companyBox,
-.reviewBox{
-  background:#f8f8f8;
-  padding:20px;
-  border-radius:12px;
-}
-
-.problem,
-.flow,
-.faq,
-.companyBox,
-.reviewBox{
-  text-align:left;
-}
-
-.service,
-.caseGrid,
-.reviewGrid{
+.topbar{
+  max-width:1100px;
+  margin:0 auto 18px;
   display:flex;
-  flex-wrap:wrap;
-  gap:20px;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(114,192,117,.25);
+  box-shadow:var(--shadow);
+  border-radius:999px;
+  padding:12px 18px;
 }
-
-.card{
-  flex:1 1 calc(50% - 20px);
-  min-width:240px;
-  background:#fafafa;
-  padding:22px;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+.brandMini{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--green-deep);}
+.brandMiniLogo{
+  width:44px;height:44px;border-radius:14px;background:#fff;border:2px solid var(--green);
+  display:grid;place-items:center;color:var(--green);font-weight:800;
 }
-
-.card h3{
-  margin:0 0 10px;
-  color:#2e7d32;
-  font-size:22px;
+.topLinks{display:flex;gap:10px;flex-wrap:wrap;}
+.topLinks a{
+  padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;
+  background:#fff;border:1px solid rgba(46,125,50,.12);
 }
-
-.card p{
-  margin:0;
+.hero{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+  align-items:center;
 }
-
-.price{
-  background:#eef7ee;
-  padding:15px;
-  border-radius:10px;
-  margin-bottom:10px;
+.heroText,
+.heroCard{
+  background:rgba(255,255,255,.86);
+  backdrop-filter:blur(8px);
+  border-radius:32px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(114,192,117,.18);
 }
-
-.notice{
-  background:#fff3e0;
-  color:#d96a00;
-  padding:15px;
-  border-radius:10px;
-  text-align:center;
-  font-weight:bold;
+.heroText{padding:40px 34px;position:relative;overflow:hidden;}
+.kicker{
+  display:inline-block;
+  background:var(--green-pale);
+  color:var(--green);
+  border-radius:999px;
+  padding:8px 14px;
+  font-weight:700;
+  font-size:14px;
   margin-bottom:14px;
 }
-
-.flow,
-.faq{
-  margin-bottom:12px;
-}
-
-.area{
-  line-height:2;
-}
-
-.contactBox{
-  background:#f8fff8;
-  padding:24px;
-  border-radius:12px;
-  text-align:center;
-  border:2px solid #d8ecd9;
-}
-
-.tel{
-  font-size:28px;
-  font-weight:bold;
-  color:#2e7d32;
-  margin:10px 0;
-}
-
-.caseCard{
-  flex:1 1 calc(50% - 20px);
-  min-width:260px;
-  background:#fafafa;
-  padding:18px;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
-
-.caseCard h3{
+.hero h1{
   margin:0 0 12px;
-  color:#2e7d32;
-  font-size:22px;
+  font-size:clamp(32px,5vw,52px);
+  line-height:1.28;
+  color:var(--green-deep);
 }
-
-.caseImage{
-  width:100%;
-  border-radius:10px;
-  margin-bottom:10px;
+.heroLead{
+  font-size:18px;
+  margin:0 0 20px;
 }
-
-.caseLabel{
-  font-weight:bold;
-  margin:8px 0 6px;
-}
-
-.reviewGrid .reviewBox{
-  flex:1 1 calc(50% - 20px);
-  min-width:260px;
-}
-
-.map{
-  margin-top:20px;
-}
-
-.map iframe{
-  width:100%;
-  height:350px;
-  border:0;
-  border-radius:12px;
-}
-
-footer{
-  text-align:center;
-  background:#2e7d32;
-  color:white;
-  padding:20px;
-  margin-top:30px;
-}
-
-.fixedBar{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:white;
-  border-top:1px solid #ddd;
+.pointRow{
   display:flex;
+  flex-wrap:wrap;
   gap:10px;
-  padding:10px;
-  z-index:999;
+  margin:20px 0 0;
 }
+.pointRow span{
+  background:#fff;
+  border:1px solid rgba(46,125,50,.14);
+  border-radius:999px;
+  padding:10px 14px;
+  font-weight:700;
+  font-size:14px;
+}
+.btnWrap{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+.btn,
+.btnLine,
+.btnGhost{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:54px;padding:14px 24px;border-radius:999px;font-weight:800;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:hover,.btnLine:hover,.btnGhost:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.10);}
+.btn{background:var(--green);color:#fff;}
+.btnLine{background:#06c755;color:#fff;}
+.btnGhost{background:#fff;color:var(--green);border:1px solid rgba(46,125,50,.18);}
+.heroCard{padding:28px;position:relative;}
+.heroLogo{
+  width:124px;height:124px;margin:0 auto 16px;border-radius:30px;
+  border:4px solid var(--green);background:#fff;display:grid;place-items:center;
+  color:var(--green);font-size:46px;font-weight:800;box-shadow:var(--shadow);
+  animation:floatY 3s ease-in-out infinite;
+}
+.heroCard h2{margin:0 0 10px;text-align:center;color:var(--green-deep);font-size:30px;}
+.heroCard p{margin:0;text-align:center;}
+.heroBadges{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px;}
+.heroBadge{
+  background:var(--green-bg);border-radius:20px;padding:16px;text-align:center;
+  font-weight:700;border:1px solid rgba(46,125,50,.10);
+}
+.wave{height:48px;background:radial-gradient(circle at 20px -10px, transparent 32px, #fff 33px) repeat-x;background-size:56px 48px;margin-top:-18px;}
 
+main{max-width:1100px;margin:0 auto;padding:0 16px 28px;}
+section{
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:34px 28px;
+  margin:18px 0;
+  position:relative;
+  overflow:hidden;
+}
+.sectionLabel{
+  display:inline-block;
+  margin-bottom:10px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--green);
+  letter-spacing:.08em;
+}
+h2{
+  margin:0 0 18px;
+  font-size:clamp(26px,3vw,36px);
+  color:var(--green-deep);
+  line-height:1.35;
+}
+.subText{margin:0 0 18px;color:#506050;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.softBox{
+  background:linear-gradient(180deg,#fbfffa 0%,#f2f9f1 100%);
+  border:1px solid rgba(46,125,50,.10);
+  border-radius:22px;
+  padding:22px;
+}
+.softBox h3{margin:0 0 12px;color:var(--green);font-size:22px;}
+.serviceGrid,
+.strengthGrid,
+.caseGrid,
+.priceGrid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+}
+.card{
+  background:#fff;
+  border:1px solid rgba(46,125,50,.10);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 8px 20px rgba(46,125,50,.05);
+}
+.cardIcon{
+  width:54px;height:54px;border-radius:18px;background:var(--green-pale);
+  display:grid;place-items:center;font-size:26px;margin-bottom:14px;
+}
+.card h3{margin:0 0 10px;font-size:23px;color:var(--green-deep);}
+.card p{margin:0;color:#546154;}
+.strengthGrid .card{background:linear-gradient(180deg,#fff 0%,#fbfffb 100%);}
+.caseCard{padding:0;overflow:hidden;}
+.caseHeader{padding:18px 18px 0;}
+.caseHeader h3{margin:0 0 8px;color:var(--green-deep);}
+.caseImgWrap{padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.casePhoto{
+  border-radius:18px;
+  min-height:180px;
+  background:linear-gradient(135deg,#e9f8e8,#f8fff7);
+  border:2px dashed rgba(46,125,50,.20);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;font-weight:700;color:#6b876b;padding:16px;
+}
+.caseNote{padding:0 18px 18px;color:#546154;}
+.priceCard{
+  background:linear-gradient(180deg,#f8fff8 0%,#eef8ed 100%);
+  border:1px solid rgba(46,125,50,.12);
+  border-radius:22px;padding:22px;
+}
+.priceCard h3{margin:0 0 12px;color:var(--green-deep);font-size:22px;}
+.priceLine{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px dashed rgba(46,125,50,.16);}
+.priceLine:last-child{border-bottom:none;}
+.priceLine strong{color:var(--green-deep);}
+.notice{
+  background:#fff8da;border:1px solid #f2e39a;color:#7f6620;
+  padding:14px 16px;border-radius:18px;font-weight:700;margin-top:14px;
+}
+.areaBox,
+.companyBox,
+.contactBox{background:var(--green-bg);border:1px solid rgba(46,125,50,.10);border-radius:22px;padding:24px;}
+.areaList{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;}
+.areaItem{background:#fff;border-radius:16px;padding:14px 16px;font-weight:700;border:1px solid rgba(46,125,50,.08);}
+.companyGrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.companyInfo dl{margin:0;display:grid;grid-template-columns:110px 1fr;gap:12px 16px;}
+.companyInfo dt{font-weight:800;color:var(--green-deep);}
+.companyInfo dd{margin:0;}
+.map iframe{width:100%;height:100%;min-height:300px;border:0;border-radius:20px;}
+.contactBox{text-align:center;}
+.tel{font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--green-deep);margin:8px 0 14px;}
+.contactBtns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:18px;}
+footer{
+  text-align:center;padding:28px 16px 110px;color:#5d6b5d;font-weight:700;
+}
+.fixedBar{
+  position:fixed;left:0;right:0;bottom:0;z-index:999;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(46,125,50,.12);
+  display:flex;gap:10px;padding:10px;
+}
 .fixedBar a{
-  flex:1;
-  text-align:center;
-  padding:12px;
-  border-radius:8px;
-  color:white;
-  font-weight:bold;
-  text-decoration:none;
+  flex:1;display:flex;align-items:center;justify-content:center;
+  min-height:50px;border-radius:999px;color:#fff;font-weight:800;
 }
+.call{background:var(--green);}
+.line{background:#06c755;}
+.small{font-size:14px;color:#627062;}
 
-.call{
-  background:#2e7d32;
+@media (max-width: 900px){
+  .hero,.grid2,.companyGrid,.serviceGrid,.strengthGrid,.caseGrid,.priceGrid{grid-template-columns:1fr;}
+  .heroBadges{grid-template-columns:1fr 1fr;}
 }
-
-.line{
-  background:#06c755;
-}
-
-@media screen and (max-width:768px){
-  body{
-    font-size:16px;
-  }
-
-  header{
-    padding:58px 18px;
-  }
-
-  header h1{
-    font-size:29px;
-  }
-
-  header p{
-    font-size:16px;
-  }
-
-  .btn,
-  .btnLine{
-    display:block;
-    width:100%;
-    max-width:320px;
-    margin:10px auto 0;
-  }
-
-  section{
-    padding:24px 18px;
-    margin:16px 10px 0;
-  }
-
-  h2{
-    font-size:23px;
-  }
-
-  .service,
-  .caseGrid,
-  .reviewGrid{
-    flex-direction:column;
-  }
-
-  .card,
-  .caseCard,
-  .reviewGrid .reviewBox{
-    min-width:auto;
-  }
-
-  .tel{
-    font-size:24px;
-  }
-
-  .map iframe{
-    height:280px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1>OGAWA GREEN</h1>
-  <p>空き家のお庭管理・草刈り・剪定・伐採</p>
-  <p>小川町・越生町・鳩山町・ときがわ町中心</p>
-  <p><b>見積もり無料</b></p>
-
-  <div class="btnWrap">
-    <a class="btn" href="tel:07044020776">電話する</a>
-    <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINE相談</a>
-  </div>
-</header>
-
-<section>
-  <h2>空き家のお庭で困っていませんか？</h2>
-
-  <div class="problem">
-    ・庭の草が伸びすぎてしまった<br>
-    ・庭木が大きくなりすぎた<br>
-    ・空き家の管理ができない<br>
-    ・近所から苦情が来る前に整えたい<br><br>
-
-    OGAWA GREENでは、<b>草刈り・剪定・伐採・空き家管理</b>を行っています。<br>
-    小川町・越生町・鳩山町・ときがわ町を中心に対応しております。
-  </div>
-</section>
-
-<section>
-  <h2>サービス内容</h2>
-
-  <div class="service">
-    <div class="card">
-      <h3>草刈り</h3>
-      <p>庭・空き地・空き家まわりの草刈りに対応します。</p>
-    </div>
-
-    <div class="card">
-      <h3>庭木剪定</h3>
-      <p>伸びすぎた庭木を整えて見た目も管理のしやすさも改善します。</p>
-    </div>
-
-    <div class="card">
-      <h3>伐採</h3>
-      <p>大きくなりすぎた木や管理が難しい木の伐採に対応します。</p>
-    </div>
-
-    <div class="card">
-      <h3>空き家管理</h3>
-      <p>定期的な見回りやお庭管理もご相談いただけます。</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>料金目安</h2>
-
-  <div class="notice">
-    草刈りだけのご依頼も大歓迎です
-  </div>
-
-  <div class="price">草刈り（50㎡まで）　5,000円〜</div>
-  <div class="price">草刈り（100㎡まで）　10,000円〜</div>
-  <div class="price">草刈り（200㎡まで）　20,000円〜</div>
-  <div class="price">草刈り（100坪以上）　要相談</div>
-
-  <div class="notice">
-    空き家・空き地の管理もお任せください
-  </div>
-
-  <div class="price">空き家管理（月1回）　5,000円〜</div>
-  <div class="price">空き家管理（月2回）　10,000円〜</div>
-  <div class="price">剪定 3mまで　5,000円〜</div>
-  <div class="price">剪定 4mまで　10,000円〜</div>
-  <div class="price">伐採 4m前後　30,000円〜</div>
-  <div class="price">抜根　木の大きさによる</div>
-
-  <p>
-    ※敷地の広さや草の量、作業内容により料金は変わります。<br>
-    ※処分費は別途となります。現地確認後に正式なお見積もりをご案内いたします。
-  </p>
-</section>
-
-<section>
-  <h2>施工事例</h2>
-
-  <div class="caseGrid">
-    <div class="caseCard">
-      <h3>草刈り施工事例 1</h3>
-      <div class="caseLabel">作業前</div>
-      <img class="caseImage" src="sample-before.jpg" alt="草刈り作業前の写真">
-
-      <div class="caseLabel">作業後</div>
-      <img class="caseImage" src="sample-after.jpg" alt="草刈り作業後の写真">
-
-      <p>伸びた草をしっかり整理し、見た目もすっきりした状態に整えました。</p>
-    </div>
-
-    <div class="caseCard">
-      <h3>草刈り施工事例 2</h3>
-      <div class="caseLabel">作業前</div>
-      <img class="caseImage" src="sample-before2.jpg" alt="空き地の草刈り前の写真">
-
-      <div class="caseLabel">作業後</div>
-      <img class="caseImage" src="sample-after2.jpg" alt="空き地の草刈り後の写真">
-
-      <p>空き地や空き家まわりも、周囲に配慮しながら丁寧に作業いたします。</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>お客様の声</h2>
-
-  <div class="reviewGrid">
-    <div class="reviewBox">
-      <strong>小川町・60代</strong><br><br>
-      空き家の草がかなり伸びて困っていましたが、きれいにしていただき助かりました。対応も丁寧で安心してお願いできました。
-    </div>
-
-    <div class="reviewBox">
-      <strong>ときがわ町・70代</strong><br><br>
-      庭木が大きくなりすぎて手に負えなかったのですが、すっきり整えてもらえました。今後もお願いしたいです。
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>施工の流れ</h2>
-
-  <div class="flow">
-    <strong>STEP1　ご相談</strong><br>
-    お電話またはLINEよりお問い合わせください。
-  </div>
-
-  <div class="flow">
-    <strong>STEP2　無料見積もり</strong><br>
-    現地確認のうえ、お見積もりをご案内いたします。
-  </div>
-
-  <div class="flow">
-    <strong>STEP3　作業</strong><br>
-    ご納得いただけましたら作業を開始いたします。
-  </div>
-
-  <div class="flow">
-    <strong>STEP4　お支払い</strong><br>
-    作業完了後に現金または銀行振込でお支払いいただきます。
-  </div>
-</section>
-
-<section>
-  <h2>対応エリア（中心）</h2>
-
-  <div class="area">
-    小川町<br>
-    越生町<br>
-    鳩山町<br>
-    ときがわ町<br><br>
-    ※近隣エリアもご相談ください
-  </div>
-</section>
-
-<section>
-  <h2>よくあるご質問</h2>
-
-  <div class="faq">
-    <strong>Q. 草刈りだけでもお願いできますか？</strong><br>
-    A. はい。草刈りだけのご依頼も大歓迎です。
-  </div>
-
-  <div class="faq">
-    <strong>Q. 見積もりだけでも大丈夫ですか？</strong><br>
-    A. はい。現地確認・お見積もりは無料です。
-  </div>
-
-  <div class="faq">
-    <strong>Q. 空き家の定期管理はできますか？</strong><br>
-    A. はい。月1回などの定期管理にも対応しています。
-  </div>
-
-  <div class="faq">
-    <strong>Q. 支払い方法は何がありますか？</strong><br>
-    A. 現金または銀行振込に対応しています。
-  </div>
-</section>
-
-<section>
-  <h2>無料相談</h2>
-
-  <div class="contactBox">
-    <p>
-      草刈り・剪定・伐採・空き家管理など、<br>
-      お困りごとがありましたらお気軽にご相談ください。
-    </p>
-
-    <p class="tel">070-4402-0776</p>
-
-    <p>LINEからのご相談も可能です</p>
-
-    <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINE相談</a>
-  </div>
-</section>
-
-<section>
-  <h2>会社情報</h2>
-
-  <div class="companyBox">
-    <strong>OGAWA GREEN</strong><br><br>
-
-    代表者<br>
-    小川知史<br><br>
-
-    住所<br>
-    埼玉県比企郡ときがわ町五明1120<br><br>
-
-    電話番号<br>
-    070-4402-0776
-  </div>
-
-  <div class="map">
-    <iframe
-      src="https://www.google.com/maps?q=埼玉県比企郡ときがわ町五明1120&output=embed"
-      loading="lazy"
-      allowfullscreen="">
-    </iframe>
-  </div>
-</section>
-
-<footer>
-  OGAWA GREEN
-</footer>
-
-<div class="fixedBar">
-  <a class="call" href="tel:07044020776">電話</a>
-  <a class="line" href="https://line.me/ti/p/anfJ8Rhb2M">LINE</a>
-</div>
-
-</body>
-</html>
+@media (max-width: 640px){
+  body{font-size:15px;}
+  header{padding:16px 12px 42px;}
+  .topbar{border-radius:22px;padding:12px 14px;align-items:flex-start;flex-direction:column;}
+  .topLinks{width:100%;}
+  .topLinks a{font-size:13px;padding:9px 12px;}
+  .heroText,.heroCard,section{padding:22px 18px;border-radius:24px;}
+  .btnWrap,.contactBtns{flex-direction:column;}
+  .btn,.btnLine,.btnGhost{width:100%
