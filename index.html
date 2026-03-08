@@ -3,580 +3,556 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>空き家管理・草刈り・剪定ならOGAWA GREEN｜小川町・越生町・鳩山町対応</title>
-<meta name="description" content="小川町・越生町・鳩山町で空き家管理、草刈り、剪定、伐採、抜根に対応。見積もり無料。現金・銀行振込対応。LINE・電話でご相談ください。">
+
+<title>空き家管理・草刈り・剪定｜小川町・越生町・鳩山町・ときがわ町｜OGAWA GREEN</title>
+<meta name="description" content="小川町・越生町・鳩山町・ときがわ町を中心に草刈り・剪定・伐採・空き家管理に対応。見積もり無料。電話・LINEでお気軽にご相談ください。">
+
 <style>
-:root{
-  --green:#2e7d32;
-  --green-dark:#1f5a23;
-  --green-soft:#eef7ee;
-  --blue:#0b57d0;
-  --text:#222;
-  --bg:#f4f7f4;
-  --white:#fff;
-  --orange:#ffedd5;
-  --shadow:0 8px 24px rgba(0,0,0,0.08);
+*{
+  box-sizing:border-box;
 }
-*{box-sizing:border-box;}
+
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.8;
+  font-family:"Yu Gothic","Meiryo",sans-serif;
+  background:#f2f5f2;
+  color:#222;
+  line-height:1.9;
+  font-size:17px;
+  padding-bottom:90px;
 }
-a{text-decoration:none;}
-img{max-width:100%;display:block;}
-.container{
-  width:min(1100px, calc(100% - 32px));
-  margin:0 auto;
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
 }
-.hero{
-  background:linear-gradient(135deg, rgba(46,125,50,.96), rgba(31,90,35,.96));
-  color:#fff;
-  padding:24px 0 56px;
+
+a{
+  color:inherit;
 }
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  margin-bottom:28px;
+
+header{
+  background:linear-gradient(135deg,#2e7d32,#3f9a46);
+  color:white;
+  text-align:center;
+  padding:72px 20px;
 }
-.logo{
-  font-weight:800;
-  letter-spacing:.08em;
-  font-size:22px;
+
+header h1{
+  font-size:38px;
+  margin:0 0 10px;
+  line-height:1.4;
 }
-.top-contact{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:52px;
-  padding:0 22px;
-  border-radius:12px;
-  font-weight:700;
-  transition:.2s ease;
-}
-.btn:hover{transform:translateY(-1px);}
-.btn-white{
-  background:#fff;
-  color:var(--green);
-}
-.btn-line{
-  background:var(--blue);
-  color:#fff;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:28px;
-  align-items:center;
-}
-.badge{
-  display:inline-block;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.25);
-  padding:8px 14px;
-  border-radius:999px;
-  font-size:14px;
-  font-weight:700;
-  margin-bottom:16px;
-}
-.hero h1{
-  font-size:clamp(32px, 5vw, 54px);
-  line-height:1.25;
-  margin:0 0 18px;
-}
-.hero-lead{
+
+header p{
   font-size:18px;
-  margin:0 0 22px;
-  opacity:.97;
+  margin:8px 0;
 }
-.hero-points{
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:12px;
-  margin:24px 0 28px;
-}
-.point{
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:14px;
-  padding:14px;
-  font-weight:700;
-}
-.hero-card{
-  background:#fff;
-  color:var(--text);
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  padding:24px;
-}
-.hero-card h2{
-  margin:0 0 8px;
-  font-size:24px;
-  color:var(--green);
-}
-.hero-card .price-note{
-  background:var(--green-soft);
-  border-radius:14px;
-  padding:14px;
-  margin:14px 0;
-  font-weight:700;
-}
-.hero-card ul{
-  padding-left:20px;
-  margin:12px 0 18px;
-}
-.hero-card .cta-stack{
-  display:grid;
-  gap:10px;
-}
-.section{
-  padding:56px 0;
-}
-.section-white{background:#fff;}
-.section h2{
-  font-size:32px;
-  line-height:1.35;
-  margin:0 0 10px;
-  text-align:center;
-}
-.section-lead{
-  text-align:center;
-  color:#555;
-  max-width:760px;
-  margin:0 auto 28px;
-}
-.problem-grid,
-.service-grid,
-.reason-grid,
-.faq-grid{
-  display:grid;
-  gap:18px;
-}
-.problem-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
-.service-grid{grid-template-columns:repeat(3, minmax(0,1fr));}
-.reason-grid{grid-template-columns:repeat(3, minmax(0,1fr));}
-.faq-grid{grid-template-columns:1fr;}
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:22px;
-  box-shadow:var(--shadow);
-}
-.card h3{
-  margin:0 0 10px;
-  font-size:22px;
-  color:var(--green);
-}
-.problem-card{
-  background:#f9fbf9;
-  border-left:6px solid var(--green);
-}
-.service-card{
-  background:#fff;
-  text-align:left;
-}
-.service-card .mini{
-  display:inline-block;
-  font-size:13px;
-  font-weight:700;
-  color:var(--green);
-  background:var(--green-soft);
-  padding:6px 10px;
-  border-radius:999px;
-  margin-bottom:10px;
-}
-.reason-card{
-  text-align:left;
-  background:linear-gradient(180deg, #fff, #f7fbf7);
-}
-.price-box{
-  background:var(--white);
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  padding:26px;
-  max-width:760px;
-  margin:0 auto;
-}
-.price-item{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  padding:14px 0;
-  border-bottom:1px solid #e8ece8;
-}
-.price-item:last-child{border-bottom:none;}
-.price-item strong{color:var(--green-dark);}
-.notice{
-  background:var(--orange);
-  border:1px solid #fdba74;
-  color:#9a3412;
-  border-radius:16px;
-  padding:18px;
-  font-weight:700;
-  max-width:760px;
-  margin:20px auto 0;
-  text-align:center;
-}
-.flow{
-  display:grid;
-  gap:14px;
-  max-width:820px;
-  margin:0 auto;
-}
-.flow-step{
-  background:#fff;
-  border-radius:18px;
-  padding:22px;
-  box-shadow:var(--shadow);
-}
-.flow-step .num{
-  display:inline-block;
-  width:34px;
-  height:34px;
-  line-height:34px;
-  text-align:center;
-  border-radius:50%;
-  background:var(--green);
-  color:#fff;
-  font-weight:800;
-  margin-right:10px;
-}
-.area-box, .payment-box, .cta-box{
-  max-width:820px;
-  margin:0 auto;
-  background:#fff;
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  padding:28px;
-}
-.area-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-  margin-top:18px;
-}
-.area-list span{
-  background:var(--green-soft);
-  color:var(--green-dark);
-  padding:10px 16px;
-  border-radius:999px;
-  font-weight:700;
-}
-.faq-item{
-  background:#fff;
-  border-radius:18px;
-  padding:22px;
-  box-shadow:var(--shadow);
-}
-.faq-item strong{color:var(--green-dark);}
-.cta-box{
-  text-align:center;
-  background:linear-gradient(135deg, #ffffff, #f1f8f1);
-}
-.cta-box .big{
-  font-size:clamp(28px, 4vw, 40px);
-  color:var(--green-dark);
-  margin:0 0 10px;
-  line-height:1.35;
-}
-.cta-actions{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  flex-wrap:wrap;
+
+.btnWrap{
   margin-top:22px;
 }
-.cta-sub{
-  color:#555;
-  margin-top:8px;
+
+.btn,
+.btnLine{
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  margin:8px 6px 0;
+  font-size:17px;
 }
-.footer{
-  background:var(--green-dark);
-  color:#fff;
-  text-align:center;
-  padding:28px 16px 100px;
+
+.btn{
+  background:white;
+  color:#2e7d32;
 }
-.fixed-bar{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  background:rgba(255,255,255,.98);
-  border-top:1px solid #dce3dc;
-  padding:10px;
-  display:flex;
-  gap:10px;
-  z-index:1000;
+
+.btnLine{
+  background:#06c755;
+  color:white;
 }
-.fixed-bar a{
-  flex:1;
+
+section{
+  max-width:960px;
+  margin:24px auto 0;
+  background:white;
+  padding:36px;
+  border-radius:14px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.05);
 }
-.fixed-bar .btn{
-  width:100%;
-  min-height:50px;
+
+h2{
+  border-left:6px solid #2e7d32;
+  padding-left:12px;
+  font-size:28px;
+  margin:0 0 20px;
+  line-height:1.5;
+}
+
+.problem,
+.flow,
+.faq,
+.area,
+.companyBox,
+.reviewBox{
+  background:#f8f8f8;
+  padding:20px;
   border-radius:12px;
 }
-@media (max-width:900px){
-  .hero-grid,
-  .problem-grid,
-  .service-grid,
-  .reason-grid{
-    grid-template-columns:1fr;
-  }
+
+.problem,
+.flow,
+.faq,
+.companyBox,
+.reviewBox{
+  text-align:left;
 }
-@media (max-width:640px){
-  .hero{padding:18px 0 44px;}
-  .topbar{margin-bottom:18px;}
-  .top-contact{display:none;}
-  .hero-points{grid-template-columns:1fr;}
-  .section{padding:44px 0;}
-  .section h2{font-size:28px;}
-  .price-item{flex-direction:column; gap:4px;}
-  .container{width:min(100% - 20px, 1100px);}
+
+.service,
+.caseGrid,
+.reviewGrid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.card{
+  flex:1 1 calc(50% - 20px);
+  min-width:240px;
+  background:#fafafa;
+  padding:22px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card h3{
+  margin:0 0 10px;
+  color:#2e7d32;
+  font-size:22px;
+}
+
+.card p{
+  margin:0;
+}
+
+.price{
+  background:#eef7ee;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.notice{
+  background:#fff3e0;
+  color:#d96a00;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+  margin-bottom:14px;
+}
+
+.flow,
+.faq{
+  margin-bottom:12px;
+}
+
+.area{
+  line-height:2;
+}
+
+.contactBox{
+  background:#f8fff8;
+  padding:24px;
+  border-radius:12px;
+  text-align:center;
+  border:2px solid #d8ecd9;
+}
+
+.tel{
+  font-size:28px;
+  font-weight:bold;
+  color:#2e7d32;
+  margin:10px 0;
+}
+
+.caseCard{
+  flex:1 1 calc(50% - 20px);
+  min-width:260px;
+  background:#fafafa;
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.caseCard h3{
+  margin:0 0 12px;
+  color:#2e7d32;
+  font-size:22px;
+}
+
+.caseImage{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.caseLabel{
+  font-weight:bold;
+  margin:8px 0 6px;
+}
+
+.reviewGrid .reviewBox{
+  flex:1 1 calc(50% - 20px);
+  min-width:260px;
+}
+
+.map{
+  margin-top:20px;
+}
+
+.map iframe{
+  width:100%;
+  height:350px;
+  border:0;
+  border-radius:12px;
+}
+
+footer{
+  text-align:center;
+  background:#2e7d32;
+  color:white;
+  padding:20px;
+  margin-top:30px;
+}
+
+.fixedBar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #ddd;
+  display:flex;
+  gap:10px;
+  padding:10px;
+  z-index:999;
+}
+
+.fixedBar a{
+  flex:1;
+  text-align:center;
+  padding:12px;
+  border-radius:8px;
+  color:white;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.call{
+  background:#2e7d32;
+}
+
+.line{
+  background:#06c755;
+}
+
+@media screen and (max-width:768px){
+  body{
+    font-size:16px;
+  }
+
+  header{
+    padding:58px 18px;
+  }
+
+  header h1{
+    font-size:29px;
+  }
+
+  header p{
+    font-size:16px;
+  }
+
+  .btn,
+  .btnLine{
+    display:block;
+    width:100%;
+    max-width:320px;
+    margin:10px auto 0;
+  }
+
+  section{
+    padding:24px 18px;
+    margin:16px 10px 0;
+  }
+
+  h2{
+    font-size:23px;
+  }
+
+  .service,
+  .caseGrid,
+  .reviewGrid{
+    flex-direction:column;
+  }
+
+  .card,
+  .caseCard,
+  .reviewGrid .reviewBox{
+    min-width:auto;
+  }
+
+  .tel{
+    font-size:24px;
+  }
+
+  .map iframe{
+    height:280px;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<header class="hero">
-  <div class="container">
-    <div class="topbar">
-      <div class="logo">OGAWA GREEN</div>
-      <div class="top-contact">
-        <a class="btn btn-white" href="tel:07044020776">電話で相談</a>
-        <a class="btn btn-line" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで相談</a>
-      </div>
-    </div>
+<header>
+  <h1>OGAWA GREEN</h1>
+  <p>空き家のお庭管理・草刈り・剪定・伐採</p>
+  <p>小川町・越生町・鳩山町・ときがわ町中心</p>
+  <p><b>見積もり無料</b></p>
 
-    <div class="hero-grid">
-      <div>
-        <div class="badge">小川町・越生町・鳩山町対応 / 見積もり無料</div>
-        <h1>空き家のお庭管理、<br>もう放置しない。</h1>
-        <p class="hero-lead">
-          草刈り・剪定・伐採・抜根・清掃までまとめて対応。<br>
-          「遠方で見に行けない」「近隣トラブルが心配」「定期的に管理したい」
-          そんな空き家のお悩みを、OGAWA GREENがしっかりサポートします。
-        </p>
-
-        <div class="hero-points">
-          <div class="point">見積もり無料</div>
-          <div class="point">小さな作業も対応</div>
-          <div class="point">月1回の定期管理OK</div>
-          <div class="point">現金・銀行振込対応</div>
-        </div>
-
-        <div class="cta-actions" style="justify-content:flex-start;">
-          <a class="btn btn-white" href="tel:07044020776">今すぐ電話する</a>
-          <a class="btn btn-line" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで無料相談</a>
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <h2>こんな方におすすめ</h2>
-        <ul>
-          <li>空き家の庭の草が伸びすぎて困っている</li>
-          <li>庭木が大きくなり近所迷惑が心配</li>
-          <li>遠方に住んでいて現地管理が難しい</li>
-          <li>空き家をきれいな状態で維持したい</li>
-          <li>まずは見積もりだけ相談したい</li>
-        </ul>
-        <div class="price-note">空き家管理（月1回）5,000円〜</div>
-        <div class="cta-stack">
-          <a class="btn btn-white" style="background:var(--green);color:#fff;" href="tel:07044020776">電話：070-4402-0776</a>
-          <a class="btn btn-line" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで相談する</a>
-        </div>
-      </aside>
-    </div>
+  <div class="btnWrap">
+    <a class="btn" href="tel:07044020776">電話する</a>
+    <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINE相談</a>
   </div>
 </header>
 
-<section class="section">
-  <div class="container">
-    <h2>空き家のこんなお悩み、ありませんか？</h2>
-    <p class="section-lead">放置すると景観の悪化だけでなく、近隣トラブルや管理負担にもつながります。</p>
-    <div class="problem-grid">
-      <div class="card problem-card">
-        <h3>草が伸びて手に負えない</h3>
-        <p>庭や敷地の雑草が広がり、見た目も悪くなってしまう。自分で対応するには時間も体力もかかる。</p>
-      </div>
-      <div class="card problem-card">
-        <h3>庭木が伸びすぎている</h3>
-        <p>枝が道路や隣地にはみ出しそうで不安。苦情や事故になる前に整えたい。</p>
-      </div>
-      <div class="card problem-card">
-        <h3>遠方で見に行けない</h3>
-        <p>住んでいる場所が離れていて、定期的な確認や清掃が難しい。管理を任せたい。</p>
-      </div>
-      <div class="card problem-card">
-        <h3>まとめて頼みたい</h3>
-        <p>草刈り、剪定、清掃、伐採などを別々に頼むのは面倒。1か所にまとめて相談したい。</p>
-      </div>
+<section>
+  <h2>空き家のお庭で困っていませんか？</h2>
+
+  <div class="problem">
+    ・庭の草が伸びすぎてしまった<br>
+    ・庭木が大きくなりすぎた<br>
+    ・空き家の管理ができない<br>
+    ・近所から苦情が来る前に整えたい<br><br>
+
+    OGAWA GREENでは、<b>草刈り・剪定・伐採・空き家管理</b>を行っています。<br>
+    小川町・越生町・鳩山町・ときがわ町を中心に対応しております。
+  </div>
+</section>
+
+<section>
+  <h2>サービス内容</h2>
+
+  <div class="service">
+    <div class="card">
+      <h3>草刈り</h3>
+      <p>庭・空き地・空き家まわりの草刈りに対応します。</p>
+    </div>
+
+    <div class="card">
+      <h3>庭木剪定</h3>
+      <p>伸びすぎた庭木を整えて見た目も管理のしやすさも改善します。</p>
+    </div>
+
+    <div class="card">
+      <h3>伐採</h3>
+      <p>大きくなりすぎた木や管理が難しい木の伐採に対応します。</p>
+    </div>
+
+    <div class="card">
+      <h3>空き家管理</h3>
+      <p>定期的な見回りやお庭管理もご相談いただけます。</p>
     </div>
   </div>
 </section>
 
-<section class="section section-white">
-  <div class="container">
-    <h2>OGAWA GREENの空き家管理サービス</h2>
-    <p class="section-lead">空き家まわりの庭管理を、必要な作業ごとに柔軟に対応します。</p>
-    <div class="service-grid">
-      <div class="card service-card">
-        <span class="mini">SERVICE 01</span>
-        <h3>草刈り</h3>
-        <p>庭・空き地・駐車場などの雑草を刈り取り、すっきりした状態へ整えます。</p>
-      </div>
-      <div class="card service-card">
-        <span class="mini">SERVICE 02</span>
-        <h3>庭木剪定</h3>
-        <p>伸びすぎた庭木を整え、見た目と安全性の両方を改善します。</p>
-      </div>
-      <div class="card service-card">
-        <span class="mini">SERVICE 03</span>
-        <h3>伐採</h3>
-        <p>大きく育ちすぎた木や不要になった木の伐採にも対応します。</p>
-      </div>
-      <div class="card service-card">
-        <span class="mini">SERVICE 04</span>
-        <h3>抜根</h3>
-        <p>木を切るだけでなく、必要に応じて根から撤去する作業も行います。</p>
-      </div>
-      <div class="card service-card">
-        <span class="mini">SERVICE 05</span>
-        <h3>庭の清掃</h3>
-        <p>落ち葉やごみの片付けなど、庭まわりの清掃もまとめてお任せいただけます。</p>
-      </div>
-      <div class="card service-card">
-        <span class="mini">SERVICE 06</span>
-        <h3>定期管理</h3>
-        <p>月1回・月2回など、空き家の状態に合わせた継続管理も可能です。</p>
-      </div>
+<section>
+  <h2>料金目安</h2>
+
+  <div class="notice">
+    草刈りだけのご依頼も大歓迎です
+  </div>
+
+  <div class="price">草刈り（50㎡まで）　5,000円〜</div>
+  <div class="price">草刈り（100㎡まで）　10,000円〜</div>
+  <div class="price">草刈り（200㎡まで）　20,000円〜</div>
+  <div class="price">草刈り（100坪以上）　要相談</div>
+
+  <div class="notice">
+    空き家・空き地の管理もお任せください
+  </div>
+
+  <div class="price">空き家管理（月1回）　5,000円〜</div>
+  <div class="price">空き家管理（月2回）　10,000円〜</div>
+  <div class="price">剪定 3mまで　5,000円〜</div>
+  <div class="price">剪定 4mまで　10,000円〜</div>
+  <div class="price">伐採 4m前後　30,000円〜</div>
+  <div class="price">抜根　木の大きさによる</div>
+
+  <p>
+    ※敷地の広さや草の量、作業内容により料金は変わります。<br>
+    ※処分費は別途となります。現地確認後に正式なお見積もりをご案内いたします。
+  </p>
+</section>
+
+<section>
+  <h2>施工事例</h2>
+
+  <div class="caseGrid">
+    <div class="caseCard">
+      <h3>草刈り施工事例 1</h3>
+      <div class="caseLabel">作業前</div>
+      <img class="caseImage" src="sample-before.jpg" alt="草刈り作業前の写真">
+
+      <div class="caseLabel">作業後</div>
+      <img class="caseImage" src="sample-after.jpg" alt="草刈り作業後の写真">
+
+      <p>伸びた草をしっかり整理し、見た目もすっきりした状態に整えました。</p>
+    </div>
+
+    <div class="caseCard">
+      <h3>草刈り施工事例 2</h3>
+      <div class="caseLabel">作業前</div>
+      <img class="caseImage" src="sample-before2.jpg" alt="空き地の草刈り前の写真">
+
+      <div class="caseLabel">作業後</div>
+      <img class="caseImage" src="sample-after2.jpg" alt="空き地の草刈り後の写真">
+
+      <p>空き地や空き家まわりも、周囲に配慮しながら丁寧に作業いたします。</p>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>OGAWA GREENが選ばれる理由</h2>
-    <p class="section-lead">ただ作業するだけでなく、空き家管理の不安を減らせるように対応します。</p>
-    <div class="reason-grid">
-      <div class="card reason-card">
-        <h3>見積もり無料</h3>
-        <p>まずは現地確認・お見積もりから。費用が合わなければお断りでも大丈夫です。</p>
-      </div>
-      <div class="card reason-card">
-        <h3>小さな作業も相談OK</h3>
-        <p>「少しだけ整えたい」「庭の一部だけ頼みたい」といったご相談にも柔軟に対応します。</p>
-      </div>
-      <div class="card reason-card">
-        <h3>空き家向けの定期管理対応</h3>
-        <p>単発作業だけでなく、継続的な管理も対応可能。遠方オーナー様にもおすすめです。</p>
-      </div>
+<section>
+  <h2>お客様の声</h2>
+
+  <div class="reviewGrid">
+    <div class="reviewBox">
+      <strong>小川町・60代</strong><br><br>
+      空き家の草がかなり伸びて困っていましたが、きれいにしていただき助かりました。対応も丁寧で安心してお願いできました。
+    </div>
+
+    <div class="reviewBox">
+      <strong>ときがわ町・70代</strong><br><br>
+      庭木が大きくなりすぎて手に負えなかったのですが、すっきり整えてもらえました。今後もお願いしたいです。
     </div>
   </div>
 </section>
 
-<section class="section section-white">
-  <div class="container">
-    <h2>料金目安</h2>
-    <p class="section-lead">内容・敷地の広さ・木の状態によって変動します。詳細は現地確認後にご案内します。</p>
-    <div class="price-box">
-      <div class="price-item"><span>空き家管理（月1回）</span><strong>5,000円〜</strong></div>
-      <div class="price-item"><span>空き家管理（月2回）</span><strong>10,000円〜</strong></div>
-      <div class="price-item"><span>剪定 3mまで</span><strong>5,000円〜</strong></div>
-      <div class="price-item"><span>剪定 4mまで</span><strong>10,000円〜</strong></div>
-      <div class="price-item"><span>伐採 4m前後</span><strong>30,000円〜</strong></div>
-      <div class="price-item"><span>抜根</span><strong>木の大きさによる</strong></div>
-    </div>
-    <div class="notice">処分費は別途となります。まずは無料見積もりでご相談ください。</div>
+<section>
+  <h2>施工の流れ</h2>
+
+  <div class="flow">
+    <strong>STEP1　ご相談</strong><br>
+    お電話またはLINEよりお問い合わせください。
+  </div>
+
+  <div class="flow">
+    <strong>STEP2　無料見積もり</strong><br>
+    現地確認のうえ、お見積もりをご案内いたします。
+  </div>
+
+  <div class="flow">
+    <strong>STEP3　作業</strong><br>
+    ご納得いただけましたら作業を開始いたします。
+  </div>
+
+  <div class="flow">
+    <strong>STEP4　お支払い</strong><br>
+    作業完了後に現金または銀行振込でお支払いいただきます。
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>ご依頼の流れ</h2>
-    <p class="section-lead">初めての方でも安心してご相談いただけるよう、シンプルな流れで対応します。</p>
-    <div class="flow">
-      <div class="flow-step"><span class="num">1</span><strong>ご相談・お問い合わせ</strong><br>お電話またはLINEでご連絡ください。内容を確認し、対応可否をご案内します。</div>
-      <div class="flow-step"><span class="num">2</span><strong>無料お見積もり</strong><br>現地確認を行い、作業内容と費用の目安をご案内します。</div>
-      <div class="flow-step"><span class="num">3</span><strong>作業開始</strong><br>内容にご納得いただけましたら作業に入ります。おおよその終了時間もお伝えします。</div>
-      <div class="flow-step"><span class="num">4</span><strong>完了確認</strong><br>作業完了後に内容をご確認いただきます。追加のご希望があればその場でご相談可能です。</div>
-      <div class="flow-step"><span class="num">5</span><strong>お支払い</strong><br>作業完了後にご精算となります。現金または銀行振込に対応しています。</div>
-    </div>
+<section>
+  <h2>対応エリア（中心）</h2>
+
+  <div class="area">
+    小川町<br>
+    越生町<br>
+    鳩山町<br>
+    ときがわ町<br><br>
+    ※近隣エリアもご相談ください
   </div>
 </section>
 
-<section class="section section-white">
-  <div class="container">
-    <h2>お支払い方法</h2>
-    <div class="payment-box">
-      <p><strong>現金払い</strong><br>作業完了後にお支払いいただきます。</p>
-      <p><strong>銀行振込</strong><br>作業完了後、指定口座へお振込みをお願いいたします。</p>
-      <p>※振込手数料はお客様ご負担となります。</p>
-    </div>
+<section>
+  <h2>よくあるご質問</h2>
+
+  <div class="faq">
+    <strong>Q. 草刈りだけでもお願いできますか？</strong><br>
+    A. はい。草刈りだけのご依頼も大歓迎です。
+  </div>
+
+  <div class="faq">
+    <strong>Q. 見積もりだけでも大丈夫ですか？</strong><br>
+    A. はい。現地確認・お見積もりは無料です。
+  </div>
+
+  <div class="faq">
+    <strong>Q. 空き家の定期管理はできますか？</strong><br>
+    A. はい。月1回などの定期管理にも対応しています。
+  </div>
+
+  <div class="faq">
+    <strong>Q. 支払い方法は何がありますか？</strong><br>
+    A. 現金または銀行振込に対応しています。
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <h2>対応エリア</h2>
-    <div class="area-box">
-      <p style="text-align:center; margin:0;">下記エリアを中心に対応しています。</p>
-      <div class="area-list">
-        <span>小川町</span>
-        <span>越生町</span>
-        <span>鳩山町</span>
-      </div>
-    </div>
+<section>
+  <h2>無料相談</h2>
+
+  <div class="contactBox">
+    <p>
+      草刈り・剪定・伐採・空き家管理など、<br>
+      お困りごとがありましたらお気軽にご相談ください。
+    </p>
+
+    <p class="tel">070-4402-0776</p>
+
+    <p>LINEからのご相談も可能です</p>
+
+    <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINE相談</a>
   </div>
 </section>
 
-<section class="section section-white">
-  <div class="container">
-    <h2>よくあるご質問</h2>
-    <div class="faq-grid">
-      <div class="faq-item"><strong>Q. 小さな作業でもお願いできますか？</strong><br>A. はい。小さな作業でもお気軽にご相談ください。</div>
-      <div class="faq-item"><strong>Q. 見積もりだけでも大丈夫ですか？</strong><br>A. 大丈夫です。現地確認・お見積もりは無料です。</div>
-      <div class="faq-item"><strong>Q. 空き家の定期管理はできますか？</strong><br>A. はい。月1回などの定期管理にも対応しています。</div>
-      <div class="faq-item"><strong>Q. 支払い方法は何がありますか？</strong><br>A. 現金または銀行振込に対応しています。</div>
-    </div>
+<section>
+  <h2>会社情報</h2>
+
+  <div class="companyBox">
+    <strong>OGAWA GREEN</strong><br><br>
+
+    代表者<br>
+    小川知史<br><br>
+
+    住所<br>
+    埼玉県比企郡ときがわ町五明1120<br><br>
+
+    電話番号<br>
+    070-4402-0776
+  </div>
+
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps?q=埼玉県比企郡ときがわ町五明1120&output=embed"
+      loading="lazy"
+      allowfullscreen="">
+    </iframe>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="cta-box">
-      <p class="big">空き家のお庭管理、<br>まずは無料で相談しませんか？</p>
-      <p class="cta-sub">
-        草刈り・剪定・伐採・抜根・定期管理まで対応。<br>
-        まずはお電話またはLINEでお気軽にご連絡ください。
-      </p>
-      <p><strong>TEL：070-4402-0776</strong></p>
-      <div class="cta-actions">
-        <a class="btn btn-white" style="background:var(--green);color:#fff;" href="tel:07044020776">電話で相談する</a>
-        <a class="btn btn-line" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで無料相談する</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  OGAWA GREEN<br>
-  空き家管理・草刈り・剪定・伐採・抜根
+<footer>
+  OGAWA GREEN
 </footer>
 
-<div class="fixed-bar">
-  <a href="tel:07044020776"><span class="btn" style="background:var(--green);color:#fff;">電話する</span></a>
-  <a href="https://line.me/ti/p/anfJ8Rhb2M"><span class="btn" style="background:var(--blue);color:#fff;">LINEで相談</span></a>
+<div class="fixedBar">
+  <a class="call" href="tel:07044020776">電話</a>
+  <a class="line" href="https://line.me/ti/p/anfJ8Rhb2M">LINE</a>
 </div>
 
 </body>
