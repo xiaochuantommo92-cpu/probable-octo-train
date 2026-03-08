@@ -14,7 +14,6 @@
   --green-pale:#eef9ec;
   --green-bg:#f7fbf6;
   --green-deep:#1f5d28;
-  --yellow:#f4d96b;
   --text:#2d332d;
   --white:#ffffff;
   --shadow:0 10px 28px rgba(46,125,50,.10);
@@ -485,24 +484,22 @@ h2{
 .bubble1{
   background:radial-gradient(circle at 30% 30%, #f3e84a, #bfd630);
   margin-right:-35px;
-  animation:bubbleIn .9s ease forwards;
-  animation-delay:.2s;
 }
 
 .bubble2{
   background:radial-gradient(circle at 30% 30%, #7fd46f, #4aa94c);
   margin-right:-35px;
-  animation:bubbleIn .9s ease forwards;
-  animation-delay:.7s;
 }
 
 .bubble3{
   background:radial-gradient(circle at 30% 30%, #98d85a, #4f9f39);
-  animation:bubbleIn .9s ease forwards;
-  animation-delay:1.2s;
 }
 
-/* 強みなど */
+.serviceBubble.show{
+  animation:bubbleIn .9s ease forwards;
+}
+
+/* 強み */
 .strengthGrid,
 .caseGrid,
 .priceGrid{
@@ -539,6 +536,64 @@ h2{
 .card p{
   margin:0;
   color:#546154;
+}
+
+/* 詳細サービス */
+.detailServiceGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+.detailServiceCard{
+  background:#fff;
+  border:1px solid rgba(46,125,50,.10);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 10px 24px rgba(46,125,50,.06);
+}
+
+.detailServiceImage{
+  background:#f2f8f1;
+  min-height:220px;
+}
+
+.detailServiceImage img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.detailServiceBody{
+  padding:22px;
+}
+
+.detailServiceBody h3{
+  margin:0 0 14px;
+  font-size:28px;
+  color:var(--green-deep);
+}
+
+.featureTags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.featureTags span{
+  background:var(--green-pale);
+  color:var(--green-deep);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:14px;
+  font-weight:700;
+  border:1px solid rgba(46,125,50,.10);
+}
+
+.detailServiceBody p{
+  margin:0;
+  color:#566356;
 }
 
 /* 施工事例 */
@@ -751,7 +806,8 @@ footer{
   .companyGrid,
   .strengthGrid,
   .caseGrid,
-  .priceGrid{
+  .priceGrid,
+  .detailServiceGrid{
     grid-template-columns:1fr;
   }
 
@@ -893,7 +949,7 @@ footer{
 
   <div class="hero">
     <div class="heroText">
-      <span class="kicker">庭の整理・草刈り・剪定・伐採・空き家管理</span>
+      <span class="kicker">庭の整理・草刈り・剪定・刈り込み・伐採・抜根・空き家管理</span>
       <h1>若さと行動力で、<br>庭をすっきり整えます。</h1>
       <p class="heroLead">
         小川町・越生町・鳩山町・ときがわ町を中心に、<br>
@@ -932,34 +988,33 @@ footer{
 
   <section id="bubbles" class="bubbleSection">
     <p class="bubbleLead">
-      造園から<br>
-      剪定・伐採など<br>
-      わたしたちに<br>
-      できること。
+      庭まわりのことなら<br>
+      OGAWA GREENに<br>
+      お任せください。
     </p>
 
     <div class="bubbleWrap">
       <div class="serviceBubble bubble1">
         <h3>庭の整理</h3>
         <p>
-          庭まわりの片付けや<br>
-          整理に対応します
+          片付け・整理整頓<br>
+          空き家まわりの管理
         </p>
       </div>
 
       <div class="serviceBubble bubble2">
-        <h3>除草<br>草刈り・刈込</h3>
+        <h3>草刈り</h3>
         <p>
-          草取りや草刈り<br>
-          生垣の刈込など
+          除草・草刈り<br>
+          すっきり見やすく
         </p>
       </div>
 
       <div class="serviceBubble bubble3">
-        <h3>剪定・伐採</h3>
+        <h3>剪定・刈り込み<br>伐採・抜根</h3>
         <p>
-          大きくなった木や<br>
-          枝の整理に対応します
+          庭木の整理から<br>
+          重たい作業まで対応
         </p>
       </div>
     </div>
@@ -985,6 +1040,90 @@ footer{
           地域に密着し、頼んでよかったと思っていただけるよう誠実に対応いたします。
         </p>
       </div>
+    </div>
+  </section>
+
+  <section id="serviceDetail">
+    <span class="sectionLabel">SERVICE</span>
+    <h2>対応サービス</h2>
+    <p class="subText">それぞれの作業内容に合わせて、丁寧に対応いたします。</p>
+
+    <div class="detailServiceGrid">
+
+      <div class="detailServiceCard">
+        <div class="detailServiceImage">
+          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E5%BA%AD%E3%81%AE%E6%95%B4%E7%90%86" alt="庭の整理のイメージ">
+        </div>
+        <div class="detailServiceBody">
+          <h3>庭の整理</h3>
+          <div class="featureTags">
+            <span>片付け</span>
+            <span>整理整頓</span>
+            <span>空き家まわり</span>
+            <span>見た目改善</span>
+          </div>
+          <p>
+            荒れてしまった庭や、空き家まわりの敷地整理などに対応します。
+            見た目を整え、管理しやすい状態へ仕上げます。
+          </p>
+        </div>
+      </div>
+
+      <div class="detailServiceCard">
+        <div class="detailServiceImage">
+          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E8%8D%89%E5%88%88%E3%82%8A" alt="草刈りのイメージ">
+        </div>
+        <div class="detailServiceBody">
+          <h3>草刈り</h3>
+          <div class="featureTags">
+            <span>除草</span>
+            <span>草刈り</span>
+            <span>空き地対応</span>
+            <span>広い範囲も相談可</span>
+          </div>
+          <p>
+            庭・空き地・空き家まわりなどの草刈りに対応します。
+            周囲にも配慮しながら、すっきりした状態に整えます。
+          </p>
+        </div>
+      </div>
+
+      <div class="detailServiceCard">
+        <div class="detailServiceImage">
+          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E5%89%AA%E5%AE%9A%E3%83%BB%E5%88%88%E3%82%8A%E8%BE%BC%E3%81%BF" alt="剪定・刈り込みのイメージ">
+        </div>
+        <div class="detailServiceBody">
+          <h3>剪定・刈り込み</h3>
+          <div class="featureTags">
+            <span>庭木の剪定</span>
+            <span>枝の整理</span>
+            <span>生垣の刈り込み</span>
+            <span>見た目を整える</span>
+          </div>
+          <p>
+            伸びすぎた庭木や生垣を整え、見た目と管理のしやすさの両方を大切に仕上げます。
+          </p>
+        </div>
+      </div>
+
+      <div class="detailServiceCard">
+        <div class="detailServiceImage">
+          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E4%BC%90%E6%8E%A1%E3%83%BB%E6%8A%9C%E6%A0%B9" alt="伐採・抜根のイメージ">
+        </div>
+        <div class="detailServiceBody">
+          <h3>伐採・抜根</h3>
+          <div class="featureTags">
+            <span>不要な木の撤去</span>
+            <span>切り株対応</span>
+            <span>重たい作業</span>
+            <span>安全に配慮</span>
+          </div>
+          <p>
+            大きくなりすぎた木や不要になった木の伐採、抜根にも対応いたします。
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1130,8 +1269,30 @@ footer{
 window.addEventListener('load', function(){
   setTimeout(function(){
     document.getElementById('loading').classList.add('hide');
-  }, 900);
+  }, 4500);
 });
+
+const bubbleSection = document.querySelector('.bubbleSection');
+const bubbles = document.querySelectorAll('.serviceBubble');
+
+if (bubbleSection && bubbles.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        bubbles.forEach((bubble, index) => {
+          setTimeout(() => {
+            bubble.classList.add('show');
+          }, index * 450);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(bubbleSection);
+}
 </script>
 
 </body>
