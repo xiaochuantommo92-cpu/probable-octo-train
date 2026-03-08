@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>OGAWA GREEN｜庭の整理・草刈り・剪定・伐採・空き家管理</title>
+<title>OGAWA GREEN｜庭の整理・草刈り・剪定・刈り込み・伐採・抜根</title>
 <meta name="description" content="小川町・越生町・鳩山町・ときがわ町を中心に、庭の整理・草刈り・剪定・刈り込み・伐採・抜根・空き家管理に対応。若さと行動力を活かし、丁寧に対応します。見積もり無料。">
 
 <style>
 :root{
   --green:#2e7d32;
+  --green-deep:#1f5d28;
   --green-soft:#74c476;
   --green-pale:#eef9ec;
   --green-bg:#f7fbf6;
-  --green-deep:#1f5d28;
   --text:#2d332d;
   --white:#ffffff;
   --shadow:0 10px 28px rgba(46,125,50,.10);
@@ -77,7 +77,6 @@ a{
   justify-content:center;
   background:#fff;
   box-shadow:var(--shadow);
-  animation:logoPop .9s ease both, floatY 2.8s ease-in-out infinite;
 }
 
 .loadingLogo{
@@ -93,21 +92,7 @@ a{
   letter-spacing:.08em;
 }
 
-@keyframes logoPop{
-  0%{transform:scale(.84);opacity:0;}
-  100%{transform:scale(1);opacity:1;}
-}
-
-@keyframes floatY{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-8px);}
-}
-
-@keyframes leafFloat{
-  0%,100%{transform:translateY(0) rotate(0deg);}
-  50%{transform:translateY(-10px) rotate(4deg);}
-}
-
+/* アニメーション */
 @keyframes bubbleIn{
   0%{
     opacity:0;
@@ -116,6 +101,15 @@ a{
   100%{
     opacity:1;
     transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes leafFloat{
+  0%,100%{
+    transform:translateY(0) rotate(0deg);
+  }
+  50%{
+    transform:translateY(-10px) rotate(4deg);
   }
 }
 
@@ -327,7 +321,6 @@ header{
   font-size:46px;
   font-weight:800;
   box-shadow:var(--shadow);
-  animation:floatY 3s ease-in-out infinite;
 }
 
 .heroCard h2{
@@ -422,7 +415,7 @@ h2{
   font-size:22px;
 }
 
-/* 丸いサービス */
+/* 丸サービス */
 .bubbleSection{
   padding:80px 20px;
   text-align:center;
@@ -441,7 +434,7 @@ h2{
 }
 
 .bubbleWrap{
-  max-width:980px;
+  max-width:1100px;
   margin:0 auto;
   display:flex;
   justify-content:center;
@@ -451,15 +444,15 @@ h2{
 }
 
 .serviceBubble{
-  width:290px;
-  height:290px;
+  width:250px;
+  height:250px;
   border-radius:50%;
   color:#fff;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  padding:30px;
+  padding:26px;
   text-align:center;
   box-sizing:border-box;
   box-shadow:0 10px 30px rgba(0,0,0,0.10);
@@ -468,30 +461,35 @@ h2{
 }
 
 .serviceBubble h3{
-  margin:0 0 14px;
-  font-size:40px;
-  line-height:1.2;
+  margin:0 0 12px;
+  font-size:32px;
+  line-height:1.25;
   font-weight:bold;
 }
 
 .serviceBubble p{
   margin:0;
-  font-size:18px;
-  line-height:1.6;
+  font-size:16px;
+  line-height:1.5;
   font-weight:bold;
 }
 
 .bubble1{
   background:radial-gradient(circle at 30% 30%, #f3e84a, #bfd630);
-  margin-right:-35px;
+  margin-right:-20px;
 }
 
 .bubble2{
   background:radial-gradient(circle at 30% 30%, #7fd46f, #4aa94c);
-  margin-right:-35px;
+  margin-right:-20px;
 }
 
 .bubble3{
+  background:radial-gradient(circle at 30% 30%, #71c7c0, #2d9c9a);
+  margin-right:-20px;
+}
+
+.bubble4{
   background:radial-gradient(circle at 30% 30%, #98d85a, #4f9f39);
 }
 
@@ -499,145 +497,103 @@ h2{
   animation:bubbleIn .9s ease forwards;
 }
 
-/* 強み */
-.strengthGrid,
-.caseGrid,
-.priceGrid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.card{
-  background:#fff;
-  border:1px solid rgba(46,125,50,.10);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 8px 20px rgba(46,125,50,.05);
-}
-
-.cardIcon{
-  width:54px;
-  height:54px;
-  border-radius:18px;
-  background:var(--green-pale);
-  display:grid;
-  place-items:center;
-  font-size:26px;
-  margin-bottom:14px;
-}
-
-.card h3{
-  margin:0 0 10px;
-  font-size:23px;
-  color:var(--green-deep);
-}
-
-.card p{
-  margin:0;
-  color:#546154;
-}
-
-/* 詳細サービス */
-.detailServiceGrid{
+/* 特徴付きサービス */
+.serviceCircleGrid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:22px;
+  gap:24px;
 }
 
-.detailServiceCard{
+.serviceCircleCard{
   background:#fff;
   border:1px solid rgba(46,125,50,.10);
   border-radius:24px;
-  overflow:hidden;
+  padding:24px;
   box-shadow:0 10px 24px rgba(46,125,50,.06);
+  text-align:center;
 }
 
-.detailServiceImage{
-  background:#f2f8f1;
-  min-height:220px;
-}
-
-.detailServiceImage img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.detailServiceBody{
-  padding:22px;
-}
-
-.detailServiceBody h3{
-  margin:0 0 14px;
+.serviceCircleCard h3{
+  margin:0 0 18px;
   font-size:28px;
   color:var(--green-deep);
 }
 
-.featureTags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:16px;
+.circleFeatureLayout{
+  position:relative;
+  width:320px;
+  height:320px;
+  margin:0 auto 18px;
 }
 
-.featureTags span{
+.circleImage{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:180px;
+  height:180px;
+  transform:translate(-50%, -50%);
+  border-radius:50%;
+  overflow:hidden;
+  border:6px solid #fff;
+  box-shadow:0 10px 24px rgba(0,0,0,.10);
+  background:#eef9ec;
+}
+
+.circleImage img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.feature{
+  position:absolute;
   background:var(--green-pale);
   color:var(--green-deep);
   border-radius:999px;
-  padding:8px 12px;
+  padding:10px 14px;
   font-size:14px;
   font-weight:700;
   border:1px solid rgba(46,125,50,.10);
+  white-space:nowrap;
 }
 
-.detailServiceBody p{
+.feature.top{
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.feature.left{
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.feature.right{
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.feature.bottom{
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.serviceCircleCard p{
   margin:0;
   color:#566356;
 }
 
-/* 施工事例 */
-.caseCard{
-  padding:0;
-  overflow:hidden;
-}
-
-.caseHeader{
-  padding:18px 18px 0;
-}
-
-.caseHeader h3{
-  margin:0 0 8px;
-  color:var(--green-deep);
-}
-
-.caseImgWrap{
-  padding:18px;
+/* 料金 */
+.priceGrid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px;
+  gap:18px;
 }
 
-.casePhoto{
-  border-radius:18px;
-  min-height:180px;
-  background:linear-gradient(135deg,#e9f8e8,#f8fff7);
-  border:2px dashed rgba(46,125,50,.20);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-weight:700;
-  color:#6b876b;
-  padding:16px;
-}
-
-.caseNote{
-  padding:0 18px 18px;
-  color:#546154;
-}
-
-/* 料金 */
 .priceCard{
   background:linear-gradient(180deg,#f8fff8 0%,#eef8ed 100%);
   border:1px solid rgba(46,125,50,.12);
@@ -677,7 +633,57 @@ h2{
   margin-top:14px;
 }
 
-/* エリア・会社情報 */
+/* 施工事例 */
+.caseGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.caseCard{
+  border:1px solid rgba(46,125,50,.10);
+  border-radius:22px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 8px 20px rgba(46,125,50,.05);
+}
+
+.caseHeader{
+  padding:18px 18px 0;
+}
+
+.caseHeader h3{
+  margin:0 0 8px;
+  color:var(--green-deep);
+}
+
+.caseImgWrap{
+  padding:18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.casePhoto{
+  border-radius:18px;
+  min-height:180px;
+  background:linear-gradient(135deg,#e9f8e8,#f8fff7);
+  border:2px dashed rgba(46,125,50,.20);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:700;
+  color:#6b876b;
+  padding:16px;
+}
+
+.caseNote{
+  padding:0 18px 18px;
+  color:#546154;
+}
+
+/* エリア */
 .areaBox,
 .companyBox,
 .contactBox{
@@ -702,6 +708,7 @@ h2{
   border:1px solid rgba(46,125,50,.08);
 }
 
+/* 会社概要 */
 .companyGrid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -794,20 +801,14 @@ footer{
   background:#06c755;
 }
 
-.small{
-  font-size:14px;
-  color:#627062;
-}
-
 /* レスポンシブ */
 @media (max-width:900px){
   .hero,
   .grid2,
-  .companyGrid,
-  .strengthGrid,
-  .caseGrid,
+  .serviceCircleGrid,
   .priceGrid,
-  .detailServiceGrid{
+  .caseGrid,
+  .companyGrid{
     grid-template-columns:1fr;
   }
 
@@ -825,17 +826,13 @@ footer{
   }
 
   .serviceBubble{
-    width:280px;
-    height:280px;
+    width:260px;
+    height:260px;
     margin-right:0 !important;
   }
 
   .serviceBubble h3{
-    font-size:34px;
-  }
-
-  .serviceBubble p{
-    font-size:17px;
+    font-size:30px;
   }
 }
 
@@ -904,17 +901,32 @@ footer{
   }
 
   .serviceBubble{
-    width:250px;
-    height:250px;
-    padding:24px;
+    width:240px;
+    height:240px;
+    padding:22px;
   }
 
   .serviceBubble h3{
-    font-size:30px;
+    font-size:26px;
   }
 
   .serviceBubble p{
-    font-size:16px;
+    font-size:15px;
+  }
+
+  .circleFeatureLayout{
+    width:280px;
+    height:280px;
+  }
+
+  .circleImage{
+    width:150px;
+    height:150px;
+  }
+
+  .feature{
+    font-size:12px;
+    padding:8px 10px;
   }
 }
 </style>
@@ -939,8 +951,8 @@ footer{
       <div>OGAWA GREEN</div>
     </div>
     <div class="topLinks">
-      <a href="#about">会社紹介</a>
       <a href="#bubbles">対応サービス</a>
+      <a href="#serviceDetail">詳しい内容</a>
       <a href="#price">料金</a>
       <a href="#works">施工事例</a>
       <a href="#company">会社概要</a>
@@ -958,7 +970,7 @@ footer{
       <div class="btnWrap">
         <a class="btn" href="tel:07044020776">📞 電話する</a>
         <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで相談する</a>
-        <a class="btnGhost" href="#bubbles">サービスを見る</a>
+        <a class="btnGhost" href="#serviceDetail">サービスを見る</a>
       </div>
       <div class="pointRow">
         <span>見積もり無料</span>
@@ -996,26 +1008,22 @@ footer{
     <div class="bubbleWrap">
       <div class="serviceBubble bubble1">
         <h3>庭の整理</h3>
-        <p>
-          片付け・整理整頓<br>
-          空き家まわりの管理
-        </p>
+        <p>片付け・整理整頓</p>
       </div>
 
       <div class="serviceBubble bubble2">
         <h3>草刈り</h3>
-        <p>
-          除草・草刈り<br>
-          すっきり見やすく
-        </p>
+        <p>除草・草刈り対応</p>
       </div>
 
       <div class="serviceBubble bubble3">
-        <h3>剪定・刈り込み<br>伐採・抜根</h3>
-        <p>
-          庭木の整理から<br>
-          重たい作業まで対応
-        </p>
+        <h3>剪定・刈り込み</h3>
+        <p>庭木・生垣を整える</p>
+      </div>
+
+      <div class="serviceBubble bubble4">
+        <h3>伐採・抜根</h3>
+        <p>重たい作業も対応</p>
       </div>
     </div>
   </section>
@@ -1048,109 +1056,64 @@ footer{
     <h2>対応サービス</h2>
     <p class="subText">それぞれの作業内容に合わせて、丁寧に対応いたします。</p>
 
-    <div class="detailServiceGrid">
+    <div class="serviceCircleGrid">
 
-      <div class="detailServiceCard">
-        <div class="detailServiceImage">
-          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E5%BA%AD%E3%81%AE%E6%95%B4%E7%90%86" alt="庭の整理のイメージ">
-        </div>
-        <div class="detailServiceBody">
-          <h3>庭の整理</h3>
-          <div class="featureTags">
-            <span>片付け</span>
-            <span>整理整頓</span>
-            <span>空き家まわり</span>
-            <span>見た目改善</span>
+      <div class="serviceCircleCard">
+        <h3>庭の整理</h3>
+        <div class="circleFeatureLayout">
+          <span class="feature top">片付け</span>
+          <span class="feature left">整理整頓</span>
+          <div class="circleImage">
+            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E5%BA%AD%E3%81%AE%E6%95%B4%E7%90%86" alt="庭の整理">
           </div>
-          <p>
-            荒れてしまった庭や、空き家まわりの敷地整理などに対応します。
-            見た目を整え、管理しやすい状態へ仕上げます。
-          </p>
+          <span class="feature right">空き家まわり</span>
+          <span class="feature bottom">見た目改善</span>
         </div>
+        <p>荒れてしまった庭や、空き家まわりの敷地整理などに対応します。</p>
       </div>
 
-      <div class="detailServiceCard">
-        <div class="detailServiceImage">
-          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E8%8D%89%E5%88%88%E3%82%8A" alt="草刈りのイメージ">
-        </div>
-        <div class="detailServiceBody">
-          <h3>草刈り</h3>
-          <div class="featureTags">
-            <span>除草</span>
-            <span>草刈り</span>
-            <span>空き地対応</span>
-            <span>広い範囲も相談可</span>
+      <div class="serviceCircleCard">
+        <h3>草刈り</h3>
+        <div class="circleFeatureLayout">
+          <span class="feature top">除草</span>
+          <span class="feature left">空き地対応</span>
+          <div class="circleImage">
+            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E8%8D%89%E5%88%88%E3%82%8A" alt="草刈り">
           </div>
-          <p>
-            庭・空き地・空き家まわりなどの草刈りに対応します。
-            周囲にも配慮しながら、すっきりした状態に整えます。
-          </p>
+          <span class="feature right">広い範囲もOK</span>
+          <span class="feature bottom">すっきり整える</span>
         </div>
+        <p>庭・空き地・空き家まわりなどの草刈りに対応します。</p>
       </div>
 
-      <div class="detailServiceCard">
-        <div class="detailServiceImage">
-          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E5%89%AA%E5%AE%9A%E3%83%BB%E5%88%88%E3%82%8A%E8%BE%BC%E3%81%BF" alt="剪定・刈り込みのイメージ">
-        </div>
-        <div class="detailServiceBody">
-          <h3>剪定・刈り込み</h3>
-          <div class="featureTags">
-            <span>庭木の剪定</span>
-            <span>枝の整理</span>
-            <span>生垣の刈り込み</span>
-            <span>見た目を整える</span>
+      <div class="serviceCircleCard">
+        <h3>剪定・刈り込み</h3>
+        <div class="circleFeatureLayout">
+          <span class="feature top">庭木の剪定</span>
+          <span class="feature left">枝の整理</span>
+          <div class="circleImage">
+            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E5%89%AA%E5%AE%9A%E3%83%BB%E5%88%88%E3%82%8A%E8%BE%BC%E3%81%BF" alt="剪定・刈り込み">
           </div>
-          <p>
-            伸びすぎた庭木や生垣を整え、見た目と管理のしやすさの両方を大切に仕上げます。
-          </p>
+          <span class="feature right">生垣対応</span>
+          <span class="feature bottom">形を整える</span>
         </div>
+        <p>伸びすぎた庭木や生垣を整え、見た目も管理しやすさも改善します。</p>
       </div>
 
-      <div class="detailServiceCard">
-        <div class="detailServiceImage">
-          <img src="https://placehold.co/800x500/eef9ec/2e7d32?text=%E4%BC%90%E6%8E%A1%E3%83%BB%E6%8A%9C%E6%A0%B9" alt="伐採・抜根のイメージ">
-        </div>
-        <div class="detailServiceBody">
-          <h3>伐採・抜根</h3>
-          <div class="featureTags">
-            <span>不要な木の撤去</span>
-            <span>切り株対応</span>
-            <span>重たい作業</span>
-            <span>安全に配慮</span>
+      <div class="serviceCircleCard">
+        <h3>伐採・抜根</h3>
+        <div class="circleFeatureLayout">
+          <span class="feature top">木の撤去</span>
+          <span class="feature left">切り株対応</span>
+          <div class="circleImage">
+            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E4%BC%90%E6%8E%A1%E3%83%BB%E6%8A%9C%E6%A0%B9" alt="伐採・抜根">
           </div>
-          <p>
-            大きくなりすぎた木や不要になった木の伐採、抜根にも対応いたします。
-          </p>
+          <span class="feature right">安全に配慮</span>
+          <span class="feature bottom">重たい作業</span>
         </div>
+        <p>大きくなりすぎた木や不要な木の伐採、抜根にも対応いたします。</p>
       </div>
 
-    </div>
-  </section>
-
-  <section>
-    <span class="sectionLabel">POINT</span>
-    <h2>選ばれる理由</h2>
-    <div class="strengthGrid">
-      <div class="card">
-        <div class="cardIcon">⚡</div>
-        <h3>若さと行動力</h3>
-        <p>若さを活かした軽いフットワークで、スピーディーに対応します。</p>
-      </div>
-      <div class="card">
-        <div class="cardIcon">🤝</div>
-        <h3>丁寧で誠実</h3>
-        <p>ただ早いだけではなく、安心して任せられる丁寧さを大切にしています。</p>
-      </div>
-      <div class="card">
-        <div class="cardIcon">🏡</div>
-        <h3>空き家まわりも相談OK</h3>
-        <p>空き家のお庭や敷地まわりの整理・草刈りも対応可能です。</p>
-      </div>
-      <div class="card">
-        <div class="cardIcon">📍</div>
-        <h3>地域密着</h3>
-        <p>小川町・越生町・鳩山町・ときがわ町を中心に動いています。</p>
-      </div>
     </div>
   </section>
 
@@ -1183,7 +1146,7 @@ footer{
     <h2>施工事例</h2>
     <p class="subText">ここにビフォーアフター写真を入れると、かなり伝わりやすくなります。</p>
     <div class="caseGrid">
-      <div class="card caseCard">
+      <div class="caseCard">
         <div class="caseHeader">
           <h3>草刈り施工事例</h3>
         </div>
@@ -1194,7 +1157,7 @@ footer{
         <div class="caseNote">伸びた草を整理し、見た目もすっきりした状態に整えます。</div>
       </div>
 
-      <div class="card caseCard">
+      <div class="caseCard">
         <div class="caseHeader">
           <h3>剪定・庭の整理事例</h3>
         </div>
@@ -1246,7 +1209,6 @@ footer{
     <div class="contactBox">
       <p>庭の整理・草刈り・剪定・刈り込み・伐採・抜根・空き家管理など、お困りごとがありましたらお気軽にご相談ください。</p>
       <div class="tel">070-4402-0776</div>
-      <div class="small">電話・LINEどちらでもご相談いただけます</div>
       <div class="contactBtns">
         <a class="btn" href="tel:07044020776">📞 電話する</a>
         <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで相談する</a>
