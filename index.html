@@ -4,385 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>OGAWA GREEN | 庭の整理・草刈り・剪定</title>
+<title>OGAWA GREEN</title>
 
 <style>
-
 body{
 margin:0;
 font-family:sans-serif;
-background:#f4f7f3;
-color:#333;
+background:#eef2ea;
+}
+
+header{
 text-align:center;
+padding:60px 20px;
 }
 
-/* ローディング */
-
-#loading{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:white;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:999;
-transition:opacity 1s;
-}
-
-#loading.hide{
-opacity:0;
-pointer-events:none;
-}
-
-.logoBox{
-border:6px solid #3f7f3f;
-border-radius:28px;
-padding:40px;
-font-size:48px;
+.logo{
+font-size:80px;
 font-weight:bold;
-color:#3f7f3f;
+color:#2e7d32;
 }
 
-.logoText{
+h1{
 font-size:40px;
-margin-top:20px;
-font-weight:bold;
-color:#3f7f3f;
-}
-
-/* サービスボタン */
-
-.heroBadgeWrap{
-position:relative;
-max-width:700px;
-margin:auto;
-padding:20px 80px;
-}
-
-.heroBadges{
-display:grid;
-gap:20px;
-}
-
-.heroBadge{
-background:white;
-padding:24px;
-border-radius:30px;
-font-size:26px;
-font-weight:bold;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-/* 草 */
-
-.sidePlants{
-position:absolute;
-top:0;
-bottom:0;
-width:70px;
-}
-
-.leftPlants{ left:0 }
-.rightPlants{ right:0 }
-
-.grass{
-position:absolute;
-width:8px;
-background:linear-gradient(#3fa64b,#7ed67e);
-border-radius:20px;
-transform-origin:bottom;
-animation:sway 4s infinite ease-in-out;
-}
-
-.leftPlants .g1{height:120px;bottom:40px;left:10px;}
-.leftPlants .g2{height:150px;bottom:70px;left:30px;animation-delay:1s;}
-.leftPlants .g3{height:100px;bottom:20px;left:50px;animation-delay:2s;}
-
-.rightPlants .g1{height:120px;bottom:40px;right:10px;}
-.rightPlants .g2{height:150px;bottom:70px;right:30px;animation-delay:1s;}
-.rightPlants .g3{height:100px;bottom:20px;right:50px;animation-delay:2s;}
-
-@keyframes sway{
-0%{transform:rotate(-6deg)}
-50%{transform:rotate(6deg)}
-100%{transform:rotate(-6deg)}
-}
-
-/* 丸サービス */
-
-.bubbleSection{
-margin-top:120px;
-}
-
-.bubbleWrap{
-display:grid;
-grid-template-columns:1fr 1fr;
-max-width:600px;
-margin:auto;
-gap:0;
-}
-
-.serviceBubble{
-width:260px;
-height:260px;
-border-radius:50%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-margin:auto;
-color:white;
-font-weight:bold;
-transition:opacity 1s, transform 1s;
-}
-
-.serviceBubble.fadeOut{
-opacity:.2;
-transform:scale(.9);
-}
-
-.bubble1{background:#c8d84a;}
-.bubble2{background:#6dc164;}
-.bubble3{background:#8ccf5f;}
-.bubble4{background:#3f9f3f;}
-
-.serviceBubble h3{
-font-size:28px;
-margin:0;
-}
-
-.serviceBubble p{
-font-size:16px;
-}
-
-/* 料金 */
-
-#price{
-margin-top:120px;
-}
-
-.priceGrid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-max-width:900px;
-margin:auto;
-}
-
-.priceCard{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-}
-
-.priceCard h3{
-margin-top:0;
-}
-
-.priceLine{
-display:flex;
-justify-content:space-between;
 margin:10px 0;
 }
 
-/* MAP */
-
-.map{
-margin-top:60px;
+.service{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+max-width:800px;
+margin:auto;
+padding:20px;
 }
 
-.map iframe{
-width:100%;
-height:300px;
-border:0;
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
+font-size:22px;
+font-weight:bold;
 }
 
-/* footer */
+.price{
+max-width:800px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.price h2{
+margin-top:0;
+}
 
 footer{
-margin-top:80px;
-padding:30px;
+text-align:center;
+padding:40px;
 background:#2e7d32;
 color:white;
-}
-
-/* 固定ボタン */
-
-.fixedBar{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-display:flex;
-}
-
-.fixedBar a{
-flex:1;
-padding:16px;
-text-align:center;
-font-weight:bold;
-text-decoration:none;
-color:white;
-}
-
-.call{background:#2e7d32;}
-.line{background:#5cc36b;}
-
-@media(max-width:800px){
-
-.priceGrid{
-grid-template-columns:1fr;
-}
-
-.bubbleWrap{
-grid-template-columns:1fr;
-}
-
+margin-top:40px;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div id="loading">
-<div class="logoBox">OG</div>
-<div class="logoText">OGAWA GREEN</div>
-</div>
-
+<header>
+<div class="logo">OG</div>
 <h1>OGAWA GREEN</h1>
+<p>庭の整理 / 草刈り / 剪定・刈り込み / 伐採・抜根</p>
+</header>
 
-<p>
-少しポップで親しみやすく、<br>
-でもきちんと頼れる庭仕事のサイトに。
-</p>
+<section class="service">
+<div class="card">庭の整理</div>
+<div class="card">草刈り</div>
+<div class="card">剪定・刈り込み</div>
+<div class="card">伐採・抜根</div>
+</section>
 
-<div class="heroBadgeWrap">
+<section class="price">
 
-<div class="sidePlants leftPlants">
-<div class="grass g1"></div>
-<div class="grass g2"></div>
-<div class="grass g3"></div>
-</div>
+<h2>料金</h2>
 
-<div class="heroBadges">
-<div class="heroBadge">庭の整理</div>
-<div class="heroBadge">草刈り</div>
-<div class="heroBadge">剪定・刈り込み</div>
-<div class="heroBadge">伐採・抜根</div>
-</div>
-
-<div class="sidePlants rightPlants">
-<div class="grass g1"></div>
-<div class="grass g2"></div>
-<div class="grass g3"></div>
-</div>
-
-</div>
-
-<section class="bubbleSection">
-
-<h2>庭まわりのことならOGAWA GREENにお任せください</h2>
-
-<div class="bubbleWrap">
-
-<div class="serviceBubble bubble1">
-<h3>庭の整理</h3>
-<p>片付け整理<br>空き家管理</p>
-</div>
-
-<div class="serviceBubble bubble2">
 <h3>草刈り</h3>
-<p>除草<br>見た目スッキリ</p>
-</div>
+<p>50㎡まで 5000円〜</p>
+<p>100㎡まで 10000円〜</p>
+<p>200㎡まで 20000円〜</p>
 
-<div class="serviceBubble bubble3">
 <h3>剪定</h3>
-<p>庭木整える<br>生垣</p>
-</div>
+<p>1m〜3m 4000円</p>
+<p>4m〜6m 7000円</p>
+<p>7m以上 要相談</p>
 
-<div class="serviceBubble bubble4">
-<h3>伐採抜根</h3>
-<p>危険木処理<br>安全作業</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="price">
-
-<h2>料金目安</h2>
-
-<div class="priceGrid">
-
-<div class="priceCard">
-<h3>剪定</h3>
-<div class="priceLine"><span>1〜3m</span><strong>4,000円</strong></div>
-<div class="priceLine"><span>4〜6m</span><strong>7,000円</strong></div>
-<div class="priceLine"><span>7m以上</span><strong>要相談</strong></div>
-</div>
-
-<div class="priceCard">
 <h3>伐採</h3>
-<div class="priceLine"><span>1〜3m</span><strong>15,000円</strong></div>
-<div class="priceLine"><span>4〜6m</span><strong>30,000円</strong></div>
-<div class="priceLine"><span>7m以上</span><strong>要相談</strong></div>
-</div>
+<p>1m〜3m 15000円</p>
+<p>4m〜6m 30000円</p>
+<p>7m以上 要相談</p>
 
-<div class="priceCard">
 <h3>抜根</h3>
-<div class="priceLine"><span>料金</span><strong>要相談</strong></div>
-</div>
-
-</div>
+<p>要相談</p>
 
 </section>
-
-<div class="map">
-
-<iframe
-src="https://www.google.com/maps?q=埼玉県比企郡ときがわ町五明1120&output=embed">
-</iframe>
-
-</div>
 
 <footer>
-
 OGAWA GREEN  
 代表 小川知史  
 埼玉県比企郡ときがわ町五明1120  
-
+TEL 070-4402-0776
 </footer>
-
-<div class="fixedBar">
-<a class="call" href="tel:07044020776">電話</a>
-<a class="line" href="https://line.me">LINE</a>
-</div>
-
-<script>
-
-setTimeout(()=>{
-document.getElementById("loading").classList.add("hide");
-},4500);
-
-const bubbles=document.querySelectorAll(".serviceBubble");
-
-let i=0;
-
-setInterval(()=>{
-bubbles.forEach(b=>b.classList.remove("fadeOut"));
-bubbles[i].classList.add("fadeOut");
-i++;
-if(i>=bubbles.length)i=0;
-},2000);
-
-</script>
 
 </body>
 </html>
