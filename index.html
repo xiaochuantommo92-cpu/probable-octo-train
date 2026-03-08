@@ -4,1257 +4,384 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>OGAWA GREEN｜庭の整理・草刈り・剪定・刈り込み・伐採・抜根</title>
-<meta name="description" content="小川町・越生町・鳩山町・ときがわ町を中心に、庭の整理・草刈り・剪定・刈り込み・伐採・抜根・空き家管理に対応。若さと行動力を活かし、丁寧に対応します。見積もり無料。">
+<title>OGAWA GREEN | 庭の整理・草刈り・剪定</title>
 
 <style>
-:root{
-  --green:#2e7d32;
-  --green-deep:#1f5d28;
-  --green-soft:#74c476;
-  --green-pale:#eef9ec;
-  --green-bg:#f7fbf6;
-  --text:#2d332d;
-  --white:#ffffff;
-  --shadow:0 10px 28px rgba(46,125,50,.10);
-  --radius:22px;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
 
 body{
-  margin:0;
-  font-family:"Yu Gothic","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
-  color:var(--text);
-  background:linear-gradient(180deg,#fbfffa 0%,#f3faf1 100%);
-  line-height:1.85;
-  padding-bottom:88px;
-}
-
-img{
-  max-width:100%;
-  height:auto;
-  display:block;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
+margin:0;
+font-family:sans-serif;
+background:#f4f7f3;
+color:#333;
+text-align:center;
 }
 
 /* ローディング */
+
 #loading{
-  position:fixed;
-  inset:0;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:14px;
-  z-index:9999;
-  transition:opacity .5s ease, visibility .5s ease;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
+transition:opacity 1s;
 }
 
 #loading.hide{
-  opacity:0;
-  visibility:hidden;
+opacity:0;
+pointer-events:none;
 }
 
-.loadingLogoWrap{
-  width:110px;
-  height:110px;
-  border:4px solid var(--green);
-  border-radius:28px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#fff;
-  box-shadow:var(--shadow);
+.logoBox{
+border:6px solid #3f7f3f;
+border-radius:28px;
+padding:40px;
+font-size:48px;
+font-weight:bold;
+color:#3f7f3f;
 }
 
-.loadingLogo{
-  font-size:44px;
-  font-weight:800;
-  color:var(--green);
-  letter-spacing:.04em;
+.logoText{
+font-size:40px;
+margin-top:20px;
+font-weight:bold;
+color:#3f7f3f;
 }
 
-.loadingText{
-  color:var(--green-deep);
-  font-weight:700;
-  letter-spacing:.08em;
-}
+/* サービスボタン */
 
-/* アニメーション */
-@keyframes bubbleIn{
-  0%{
-    opacity:0;
-    transform:translateY(40px) scale(.9);
-  }
-  100%{
-    opacity:1;
-    transform:translateY(0) scale(1);
-  }
-}
-
-@keyframes leafFloat{
-  0%,100%{
-    transform:translateY(0) rotate(0deg);
-  }
-  50%{
-    transform:translateY(-10px) rotate(4deg);
-  }
-}
-
-/* ヘッダー */
-header{
-  position:relative;
-  overflow:hidden;
-  padding:24px 16px 56px;
-}
-
-.bgLeaf,
-.bgLeaf2,
-.bgLeaf3{
-  position:absolute;
-  opacity:.18;
-  pointer-events:none;
-  animation:leafFloat 4s ease-in-out infinite;
-}
-
-.bgLeaf{
-  top:28px;
-  left:20px;
-  font-size:42px;
-}
-.bgLeaf2{
-  top:36px;
-  right:28px;
-  font-size:34px;
-  animation-delay:.8s;
-}
-.bgLeaf3{
-  bottom:16px;
-  right:14%;
-  font-size:30px;
-  animation-delay:1.4s;
-}
-
-.topbar{
-  max-width:1100px;
-  margin:0 auto 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  background:rgba(255,255,255,.82);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(114,192,117,.20);
-  box-shadow:var(--shadow);
-  border-radius:999px;
-  padding:12px 18px;
-}
-
-.brandMini{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:800;
-  color:var(--green-deep);
-}
-
-.brandMiniLogo{
-  width:46px;
-  height:46px;
-  border-radius:14px;
-  border:2px solid var(--green);
-  background:#fff;
-  display:grid;
-  place-items:center;
-  color:var(--green);
-  font-weight:800;
-}
-
-.topLinks{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.topLinks a{
-  padding:10px 15px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:14px;
-  background:#fff;
-  border:1px solid rgba(46,125,50,.10);
-}
-
-.hero{
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:24px;
-  align-items:center;
-}
-
-.heroText,
-.heroCard{
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(8px);
-  border-radius:32px;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(114,192,117,.18);
-}
-
-.heroText{
-  padding:40px 34px;
-  position:relative;
-  overflow:hidden;
-}
-
-.kicker{
-  display:inline-block;
-  background:var(--green-pale);
-  color:var(--green);
-  border-radius:999px;
-  padding:8px 14px;
-  font-weight:700;
-  font-size:14px;
-  margin-bottom:14px;
-}
-
-.hero h1{
-  margin:0 0 12px;
-  font-size:clamp(32px,5vw,52px);
-  line-height:1.28;
-  color:var(--green-deep);
-}
-
-.heroLead{
-  font-size:18px;
-  margin:0 0 20px;
-}
-
-.pointRow{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:22px;
-}
-
-.pointRow span{
-  background:#fff;
-  border:1px solid rgba(46,125,50,.14);
-  border-radius:999px;
-  padding:10px 14px;
-  font-weight:700;
-  font-size:14px;
-}
-
-.btnWrap{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:22px;
-}
-
-.btn,
-.btnLine,
-.btnGhost{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:54px;
-  padding:14px 24px;
-  border-radius:999px;
-  font-weight:800;
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-
-.btn:hover,
-.btnLine:hover,
-.btnGhost:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 20px rgba(0,0,0,.10);
-}
-
-.btn{
-  background:var(--green);
-  color:#fff;
-}
-
-.btnLine{
-  background:#06c755;
-  color:#fff;
-}
-
-.btnGhost{
-  background:#fff;
-  color:var(--green);
-  border:1px solid rgba(46,125,50,.16);
-}
-
-.heroCard{
-  padding:28px;
-  position:relative;
-}
-
-.heroLogo{
-  width:124px;
-  height:124px;
-  margin:0 auto 16px;
-  border-radius:30px;
-  border:4px solid var(--green);
-  background:#fff;
-  display:grid;
-  place-items:center;
-  color:var(--green);
-  font-size:46px;
-  font-weight:800;
-  box-shadow:var(--shadow);
-}
-
-.heroCard h2{
-  margin:0 0 10px;
-  text-align:center;
-  color:var(--green-deep);
-  font-size:30px;
-}
-
-.heroCard p{
-  margin:0;
-  text-align:center;
+.heroBadgeWrap{
+position:relative;
+max-width:700px;
+margin:auto;
+padding:20px 80px;
 }
 
 .heroBadges{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  margin-top:22px;
+display:grid;
+gap:20px;
 }
 
 .heroBadge{
-  background:var(--green-bg);
-  border-radius:20px;
-  padding:16px;
-  text-align:center;
-  font-weight:700;
-  border:1px solid rgba(46,125,50,.10);
+background:white;
+padding:24px;
+border-radius:30px;
+font-size:26px;
+font-weight:bold;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
 }
 
-.wave{
-  height:48px;
-  background:radial-gradient(circle at 20px -10px, transparent 32px, #fff 33px) repeat-x;
-  background-size:56px 48px;
-  margin-top:-18px;
+/* 草 */
+
+.sidePlants{
+position:absolute;
+top:0;
+bottom:0;
+width:70px;
 }
 
-/* メイン共通 */
-main{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 16px 28px;
+.leftPlants{ left:0 }
+.rightPlants{ right:0 }
+
+.grass{
+position:absolute;
+width:8px;
+background:linear-gradient(#3fa64b,#7ed67e);
+border-radius:20px;
+transform-origin:bottom;
+animation:sway 4s infinite ease-in-out;
 }
 
-section{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:34px 28px;
-  margin:18px 0;
-  position:relative;
-  overflow:hidden;
-}
+.leftPlants .g1{height:120px;bottom:40px;left:10px;}
+.leftPlants .g2{height:150px;bottom:70px;left:30px;animation-delay:1s;}
+.leftPlants .g3{height:100px;bottom:20px;left:50px;animation-delay:2s;}
 
-.sectionLabel{
-  display:inline-block;
-  margin-bottom:10px;
-  font-size:13px;
-  font-weight:800;
-  color:var(--green);
-  letter-spacing:.08em;
-}
+.rightPlants .g1{height:120px;bottom:40px;right:10px;}
+.rightPlants .g2{height:150px;bottom:70px;right:30px;animation-delay:1s;}
+.rightPlants .g3{height:100px;bottom:20px;right:50px;animation-delay:2s;}
 
-h2{
-  margin:0 0 18px;
-  font-size:clamp(26px,3vw,36px);
-  color:var(--green-deep);
-  line-height:1.35;
-}
-
-.subText{
-  margin:0 0 18px;
-  color:#506050;
-}
-
-.grid2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.softBox{
-  background:linear-gradient(180deg,#fbfffa 0%,#f2f9f1 100%);
-  border:1px solid rgba(46,125,50,.10);
-  border-radius:22px;
-  padding:22px;
-}
-
-.softBox h3{
-  margin:0 0 12px;
-  color:var(--green);
-  font-size:22px;
+@keyframes sway{
+0%{transform:rotate(-6deg)}
+50%{transform:rotate(6deg)}
+100%{transform:rotate(-6deg)}
 }
 
 /* 丸サービス */
-.bubbleSection{
-  padding:80px 20px;
-  text-align:center;
-  overflow:hidden;
-  background:
-    radial-gradient(circle, rgba(200,220,180,0.18) 0 18px, transparent 19px) 0 0/120px 120px,
-    #f8fbf7;
-}
 
-.bubbleLead{
-  font-size:34px;
-  font-weight:bold;
-  line-height:1.5;
-  color:#2d9c9a;
-  margin:0 0 55px;
+.bubbleSection{
+margin-top:120px;
 }
 
 .bubbleWrap{
-  max-width:1100px;
-  margin:0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:0;
+display:grid;
+grid-template-columns:1fr 1fr;
+max-width:600px;
+margin:auto;
+gap:0;
 }
 
 .serviceBubble{
-  width:250px;
-  height:250px;
-  border-radius:50%;
-  color:#fff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:26px;
-  text-align:center;
-  box-sizing:border-box;
-  box-shadow:0 10px 30px rgba(0,0,0,0.10);
-  opacity:0;
-  transform:translateY(40px) scale(.9);
+width:260px;
+height:260px;
+border-radius:50%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+margin:auto;
+color:white;
+font-weight:bold;
+transition:opacity 1s, transform 1s;
 }
 
+.serviceBubble.fadeOut{
+opacity:.2;
+transform:scale(.9);
+}
+
+.bubble1{background:#c8d84a;}
+.bubble2{background:#6dc164;}
+.bubble3{background:#8ccf5f;}
+.bubble4{background:#3f9f3f;}
+
 .serviceBubble h3{
-  margin:0 0 12px;
-  font-size:32px;
-  line-height:1.25;
-  font-weight:bold;
+font-size:28px;
+margin:0;
 }
 
 .serviceBubble p{
-  margin:0;
-  font-size:16px;
-  line-height:1.5;
-  font-weight:bold;
-}
-
-.bubble1{
-  background:radial-gradient(circle at 30% 30%, #f3e84a, #bfd630);
-  margin-right:-20px;
-}
-
-.bubble2{
-  background:radial-gradient(circle at 30% 30%, #7fd46f, #4aa94c);
-  margin-right:-20px;
-}
-
-.bubble3{
-  background:radial-gradient(circle at 30% 30%, #71c7c0, #2d9c9a);
-  margin-right:-20px;
-}
-
-.bubble4{
-  background:radial-gradient(circle at 30% 30%, #98d85a, #4f9f39);
-}
-
-.serviceBubble.show{
-  animation:bubbleIn .9s ease forwards;
-}
-
-/* 特徴付きサービス */
-.serviceCircleGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-
-.serviceCircleCard{
-  background:#fff;
-  border:1px solid rgba(46,125,50,.10);
-  border-radius:24px;
-  padding:24px;
-  box-shadow:0 10px 24px rgba(46,125,50,.06);
-  text-align:center;
-}
-
-.serviceCircleCard h3{
-  margin:0 0 18px;
-  font-size:28px;
-  color:var(--green-deep);
-}
-
-.circleFeatureLayout{
-  position:relative;
-  width:320px;
-  height:320px;
-  margin:0 auto 18px;
-}
-
-.circleImage{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:180px;
-  height:180px;
-  transform:translate(-50%, -50%);
-  border-radius:50%;
-  overflow:hidden;
-  border:6px solid #fff;
-  box-shadow:0 10px 24px rgba(0,0,0,.10);
-  background:#eef9ec;
-}
-
-.circleImage img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.feature{
-  position:absolute;
-  background:var(--green-pale);
-  color:var(--green-deep);
-  border-radius:999px;
-  padding:10px 14px;
-  font-size:14px;
-  font-weight:700;
-  border:1px solid rgba(46,125,50,.10);
-  white-space:nowrap;
-}
-
-.feature.top{
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.feature.left{
-  left:0;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-.feature.right{
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-}
-
-.feature.bottom{
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.serviceCircleCard p{
-  margin:0;
-  color:#566356;
+font-size:16px;
 }
 
 /* 料金 */
+
+#price{
+margin-top:120px;
+}
+
 .priceGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+max-width:900px;
+margin:auto;
 }
 
 .priceCard{
-  background:linear-gradient(180deg,#f8fff8 0%,#eef8ed 100%);
-  border:1px solid rgba(46,125,50,.12);
-  border-radius:22px;
-  padding:22px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
 }
 
 .priceCard h3{
-  margin:0 0 12px;
-  color:var(--green-deep);
-  font-size:22px;
+margin-top:0;
 }
 
 .priceLine{
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  padding:10px 0;
-  border-bottom:1px dashed rgba(46,125,50,.16);
+display:flex;
+justify-content:space-between;
+margin:10px 0;
 }
 
-.priceLine:last-child{
-  border-bottom:none;
-}
+/* MAP */
 
-.priceLine strong{
-  color:var(--green-deep);
-}
-
-.notice{
-  background:#fff8da;
-  border:1px solid #f2e39a;
-  color:#7f6620;
-  padding:14px 16px;
-  border-radius:18px;
-  font-weight:700;
-  margin-top:14px;
-}
-
-/* 施工事例 */
-.caseGrid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.caseCard{
-  border:1px solid rgba(46,125,50,.10);
-  border-radius:22px;
-  overflow:hidden;
-  background:#fff;
-  box-shadow:0 8px 20px rgba(46,125,50,.05);
-}
-
-.caseHeader{
-  padding:18px 18px 0;
-}
-
-.caseHeader h3{
-  margin:0 0 8px;
-  color:var(--green-deep);
-}
-
-.caseImgWrap{
-  padding:18px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.casePhoto{
-  border-radius:18px;
-  min-height:180px;
-  background:linear-gradient(135deg,#e9f8e8,#f8fff7);
-  border:2px dashed rgba(46,125,50,.20);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-weight:700;
-  color:#6b876b;
-  padding:16px;
-}
-
-.caseNote{
-  padding:0 18px 18px;
-  color:#546154;
-}
-
-/* エリア */
-.areaBox,
-.companyBox,
-.contactBox{
-  background:var(--green-bg);
-  border:1px solid rgba(46,125,50,.10);
-  border-radius:22px;
-  padding:24px;
-}
-
-.areaList{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  margin-top:16px;
-}
-
-.areaItem{
-  background:#fff;
-  border-radius:16px;
-  padding:14px 16px;
-  font-weight:700;
-  border:1px solid rgba(46,125,50,.08);
-}
-
-/* 会社概要 */
-.companyGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.companyInfo dl{
-  margin:0;
-  display:grid;
-  grid-template-columns:110px 1fr;
-  gap:12px 16px;
-}
-
-.companyInfo dt{
-  font-weight:800;
-  color:var(--green-deep);
-}
-
-.companyInfo dd{
-  margin:0;
+.map{
+margin-top:60px;
 }
 
 .map iframe{
-  width:100%;
-  height:100%;
-  min-height:300px;
-  border:0;
-  border-radius:20px;
+width:100%;
+height:300px;
+border:0;
 }
 
-/* 問い合わせ */
-.contactBox{
-  text-align:center;
-}
+/* footer */
 
-.tel{
-  font-size:clamp(26px,4vw,38px);
-  font-weight:900;
-  color:var(--green-deep);
-  margin:8px 0 14px;
-}
-
-.contactBtns{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:18px;
-}
-
-/* フッター */
 footer{
-  text-align:center;
-  padding:28px 16px 110px;
-  color:#5d6b5d;
-  font-weight:700;
+margin-top:80px;
+padding:30px;
+background:#2e7d32;
+color:white;
 }
 
 /* 固定ボタン */
+
 .fixedBar{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:999;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(12px);
-  border-top:1px solid rgba(46,125,50,.12);
-  display:flex;
-  gap:10px;
-  padding:10px;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+display:flex;
 }
 
 .fixedBar a{
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:50px;
-  border-radius:999px;
-  color:#fff;
-  font-weight:800;
+flex:1;
+padding:16px;
+text-align:center;
+font-weight:bold;
+text-decoration:none;
+color:white;
 }
 
-.call{
-  background:var(--green);
+.call{background:#2e7d32;}
+.line{background:#5cc36b;}
+
+@media(max-width:800px){
+
+.priceGrid{
+grid-template-columns:1fr;
 }
 
-.line{
-  background:#06c755;
+.bubbleWrap{
+grid-template-columns:1fr;
 }
 
-/* レスポンシブ */
-@media (max-width:900px){
-  .hero,
-  .grid2,
-  .serviceCircleGrid,
-  .priceGrid,
-  .caseGrid,
-  .companyGrid{
-    grid-template-columns:1fr;
-  }
-
-  .heroBadges{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .bubbleLead{
-    font-size:28px;
-  }
-
-  .bubbleWrap{
-    flex-direction:column;
-    gap:18px;
-  }
-
-  .serviceBubble{
-    width:260px;
-    height:260px;
-    margin-right:0 !important;
-  }
-
-  .serviceBubble h3{
-    font-size:30px;
-  }
 }
 
-@media (max-width:640px){
-  body{
-    font-size:15px;
-  }
-
-  header{
-    padding:16px 12px 42px;
-  }
-
-  .topbar{
-    border-radius:22px;
-    padding:12px 14px;
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .topLinks{
-    width:100%;
-  }
-
-  .topLinks a{
-    font-size:13px;
-    padding:9px 12px;
-  }
-
-  .heroText,
-  .heroCard,
-  section{
-    padding:22px 18px;
-    border-radius:24px;
-  }
-
-  .btnWrap,
-  .contactBtns{
-    flex-direction:column;
-  }
-
-  .btn,
-  .btnLine,
-  .btnGhost{
-    width:100%;
-  }
-
-  .heroBadges,
-  .areaList,
-  .caseImgWrap{
-    grid-template-columns:1fr;
-  }
-
-  .companyInfo dl{
-    grid-template-columns:1fr;
-    gap:4px;
-  }
-
-  .bgLeaf,
-  .bgLeaf2,
-  .bgLeaf3{
-    font-size:28px;
-  }
-
-  .bubbleLead{
-    font-size:24px;
-  }
-
-  .serviceBubble{
-    width:240px;
-    height:240px;
-    padding:22px;
-  }
-
-  .serviceBubble h3{
-    font-size:26px;
-  }
-
-  .serviceBubble p{
-    font-size:15px;
-  }
-
-  .circleFeatureLayout{
-    width:280px;
-    height:280px;
-  }
-
-  .circleImage{
-    width:150px;
-    height:150px;
-  }
-
-  .feature{
-    font-size:12px;
-    padding:8px 10px;
-  }
-}
 </style>
 </head>
+
 <body>
 
 <div id="loading">
-  <div class="loadingLogoWrap">
-    <div class="loadingLogo">OG</div>
-  </div>
-  <div class="loadingText">OGAWA GREEN</div>
+<div class="logoBox">OG</div>
+<div class="logoText">OGAWA GREEN</div>
 </div>
 
-<header>
-  <div class="bgLeaf">🌿</div>
-  <div class="bgLeaf2">🍃</div>
-  <div class="bgLeaf3">🌱</div>
+<h1>OGAWA GREEN</h1>
 
-  <div class="topbar">
-    <div class="brandMini">
-      <div class="brandMiniLogo">OG</div>
-      <div>OGAWA GREEN</div>
-    </div>
-    <div class="topLinks">
-      <a href="#bubbles">対応サービス</a>
-      <a href="#serviceDetail">詳しい内容</a>
-      <a href="#price">料金</a>
-      <a href="#works">施工事例</a>
-      <a href="#company">会社概要</a>
-    </div>
-  </div>
+<p>
+少しポップで親しみやすく、<br>
+でもきちんと頼れる庭仕事のサイトに。
+</p>
 
-  <div class="hero">
-    <div class="heroText">
-      <span class="kicker">庭の整理・草刈り・剪定・刈り込み・伐採・抜根・空き家管理</span>
-      <h1>若さと行動力で、<br>庭をすっきり整えます。</h1>
-      <p class="heroLead">
-        小川町・越生町・鳩山町・ときがわ町を中心に、<br>
-        庭の整理、草刈り、剪定・刈り込み、伐採・抜根、空き家管理まで丁寧に対応しています。
-      </p>
-      <div class="btnWrap">
-        <a class="btn" href="tel:07044020776">📞 電話する</a>
-        <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで相談する</a>
-        <a class="btnGhost" href="#serviceDetail">サービスを見る</a>
-      </div>
-      <div class="pointRow">
-        <span>見積もり無料</span>
-        <span>地域密着</span>
-        <span>空き家まわりも対応</span>
-        <span>丁寧・スピーディー</span>
-      </div>
-    </div>
+<div class="heroBadgeWrap">
 
-    <div class="heroCard">
-      <div class="heroLogo">OG</div>
-      <h2>OGAWA GREEN</h2>
-      <p>少しポップで親しみやすく、<br>でもきちんと頼れる庭仕事のサイトに。</p>
-      <div class="heroBadges">
-        <div class="heroBadge">庭の整理</div>
-        <div class="heroBadge">草刈り</div>
-        <div class="heroBadge">剪定・刈り込み</div>
-        <div class="heroBadge">伐採・抜根</div>
-      </div>
-    </div>
-  </div>
-</header>
+<div class="sidePlants leftPlants">
+<div class="grass g1"></div>
+<div class="grass g2"></div>
+<div class="grass g3"></div>
+</div>
 
-<div class="wave"></div>
+<div class="heroBadges">
+<div class="heroBadge">庭の整理</div>
+<div class="heroBadge">草刈り</div>
+<div class="heroBadge">剪定・刈り込み</div>
+<div class="heroBadge">伐採・抜根</div>
+</div>
 
-<main>
+<div class="sidePlants rightPlants">
+<div class="grass g1"></div>
+<div class="grass g2"></div>
+<div class="grass g3"></div>
+</div>
 
-  <section id="bubbles" class="bubbleSection">
-    <p class="bubbleLead">
-      庭まわりのことなら<br>
-      OGAWA GREENに<br>
-      お任せください。
-    </p>
+</div>
 
-    <div class="bubbleWrap">
-      <div class="serviceBubble bubble1">
-        <h3>庭の整理</h3>
-        <p>片付け・整理整頓</p>
-      </div>
+<section class="bubbleSection">
 
-      <div class="serviceBubble bubble2">
-        <h3>草刈り</h3>
-        <p>除草・草刈り対応</p>
-      </div>
+<h2>庭まわりのことならOGAWA GREENにお任せください</h2>
 
-      <div class="serviceBubble bubble3">
-        <h3>剪定・刈り込み</h3>
-        <p>庭木・生垣を整える</p>
-      </div>
+<div class="bubbleWrap">
 
-      <div class="serviceBubble bubble4">
-        <h3>伐採・抜根</h3>
-        <p>重たい作業も対応</p>
-      </div>
-    </div>
-  </section>
+<div class="serviceBubble bubble1">
+<h3>庭の整理</h3>
+<p>片付け整理<br>空き家管理</p>
+</div>
 
-  <section id="about">
-    <span class="sectionLabel">ABOUT</span>
-    <h2>若い力と誠実な仕事が強みです</h2>
-    <div class="grid2">
-      <div class="softBox">
-        <h3>OGAWA GREENについて</h3>
-        <p>
-          OGAWA GREENでは、若さを活かしたフットワークの軽さと、丁寧な作業を大切にしています。<br>
-          庭の整理、草刈り、剪定・刈り込み、伐採・抜根まで、ひとつひとつ責任を持って対応いたします。<br>
-          小さなお庭のお困りごとから、空き家まわりの管理まで、お気軽にご相談ください。
-        </p>
-      </div>
-      <div class="softBox">
-        <h3>理念</h3>
-        <p>
-          若さと行動力を活かし、丁寧で気持ちの良い仕事を大切にしています。<br>
-          お客様の大切なお庭や敷地を、見た目も気持ちもすっきりする状態へ整えることを心がけています。<br>
-          地域に密着し、頼んでよかったと思っていただけるよう誠実に対応いたします。
-        </p>
-      </div>
-    </div>
-  </section>
+<div class="serviceBubble bubble2">
+<h3>草刈り</h3>
+<p>除草<br>見た目スッキリ</p>
+</div>
 
-  <section id="serviceDetail">
-    <span class="sectionLabel">SERVICE</span>
-    <h2>対応サービス</h2>
-    <p class="subText">それぞれの作業内容に合わせて、丁寧に対応いたします。</p>
+<div class="serviceBubble bubble3">
+<h3>剪定</h3>
+<p>庭木整える<br>生垣</p>
+</div>
 
-    <div class="serviceCircleGrid">
+<div class="serviceBubble bubble4">
+<h3>伐採抜根</h3>
+<p>危険木処理<br>安全作業</p>
+</div>
 
-      <div class="serviceCircleCard">
-        <h3>庭の整理</h3>
-        <div class="circleFeatureLayout">
-          <span class="feature top">片付け</span>
-          <span class="feature left">整理整頓</span>
-          <div class="circleImage">
-            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E5%BA%AD%E3%81%AE%E6%95%B4%E7%90%86" alt="庭の整理">
-          </div>
-          <span class="feature right">空き家まわり</span>
-          <span class="feature bottom">見た目改善</span>
-        </div>
-        <p>荒れてしまった庭や、空き家まわりの敷地整理などに対応します。</p>
-      </div>
+</div>
 
-      <div class="serviceCircleCard">
-        <h3>草刈り</h3>
-        <div class="circleFeatureLayout">
-          <span class="feature top">除草</span>
-          <span class="feature left">空き地対応</span>
-          <div class="circleImage">
-            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E8%8D%89%E5%88%88%E3%82%8A" alt="草刈り">
-          </div>
-          <span class="feature right">広い範囲もOK</span>
-          <span class="feature bottom">すっきり整える</span>
-        </div>
-        <p>庭・空き地・空き家まわりなどの草刈りに対応します。</p>
-      </div>
+</section>
 
-      <div class="serviceCircleCard">
-        <h3>剪定・刈り込み</h3>
-        <div class="circleFeatureLayout">
-          <span class="feature top">庭木の剪定</span>
-          <span class="feature left">枝の整理</span>
-          <div class="circleImage">
-            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E5%89%AA%E5%AE%9A%E3%83%BB%E5%88%88%E3%82%8A%E8%BE%BC%E3%81%BF" alt="剪定・刈り込み">
-          </div>
-          <span class="feature right">生垣対応</span>
-          <span class="feature bottom">形を整える</span>
-        </div>
-        <p>伸びすぎた庭木や生垣を整え、見た目も管理しやすさも改善します。</p>
-      </div>
+<section id="price">
 
-      <div class="serviceCircleCard">
-        <h3>伐採・抜根</h3>
-        <div class="circleFeatureLayout">
-          <span class="feature top">木の撤去</span>
-          <span class="feature left">切り株対応</span>
-          <div class="circleImage">
-            <img src="https://placehold.co/500x500/eef9ec/2e7d32?text=%E4%BC%90%E6%8E%A1%E3%83%BB%E6%8A%9C%E6%A0%B9" alt="伐採・抜根">
-          </div>
-          <span class="feature right">安全に配慮</span>
-          <span class="feature bottom">重たい作業</span>
-        </div>
-        <p>大きくなりすぎた木や不要な木の伐採、抜根にも対応いたします。</p>
-      </div>
+<h2>料金目安</h2>
 
-    </div>
-  </section>
+<div class="priceGrid">
 
-  <section id="price">
-    <span class="sectionLabel">PRICE</span>
-    <h2>料金目安</h2>
-    <div class="priceGrid">
-      <div class="priceCard">
-        <h3>草刈り</h3>
-        <div class="priceLine"><span>50㎡まで</span><strong>5,000円〜</strong></div>
-        <div class="priceLine"><span>100㎡まで</span><strong>10,000円〜</strong></div>
-        <div class="priceLine"><span>200㎡まで</span><strong>20,000円〜</strong></div>
-        <div class="priceLine"><span>100坪以上</span><strong>要相談</strong></div>
-      </div>
+<div class="priceCard">
+<h3>剪定</h3>
+<div class="priceLine"><span>1〜3m</span><strong>4,000円</strong></div>
+<div class="priceLine"><span>4〜6m</span><strong>7,000円</strong></div>
+<div class="priceLine"><span>7m以上</span><strong>要相談</strong></div>
+</div>
 
-      <div class="priceCard">
-        <h3>その他</h3>
-        <div class="priceLine"><span>剪定 3mまで</span><strong>5,000円〜</strong></div>
-        <div class="priceLine"><span>剪定 4mまで</span><strong>10,000円〜</strong></div>
-        <div class="priceLine"><span>伐採 4m前後</span><strong>30,000円〜</strong></div>
-        <div class="priceLine"><span>抜根</span><strong>木の大きさによる</strong></div>
-        <div class="priceLine"><span>空き家管理（月1回）</span><strong>5,000円〜</strong></div>
-      </div>
-    </div>
-    <div class="notice">※敷地の広さや草の量、作業内容により料金は変わります。処分費は別途となります。</div>
-  </section>
+<div class="priceCard">
+<h3>伐採</h3>
+<div class="priceLine"><span>1〜3m</span><strong>15,000円</strong></div>
+<div class="priceLine"><span>4〜6m</span><strong>30,000円</strong></div>
+<div class="priceLine"><span>7m以上</span><strong>要相談</strong></div>
+</div>
 
-  <section id="works">
-    <span class="sectionLabel">WORKS</span>
-    <h2>施工事例</h2>
-    <p class="subText">ここにビフォーアフター写真を入れると、かなり伝わりやすくなります。</p>
-    <div class="caseGrid">
-      <div class="caseCard">
-        <div class="caseHeader">
-          <h3>草刈り施工事例</h3>
-        </div>
-        <div class="caseImgWrap">
-          <div class="casePhoto">作業前の写真を入れる</div>
-          <div class="casePhoto">作業後の写真を入れる</div>
-        </div>
-        <div class="caseNote">伸びた草を整理し、見た目もすっきりした状態に整えます。</div>
-      </div>
+<div class="priceCard">
+<h3>抜根</h3>
+<div class="priceLine"><span>料金</span><strong>要相談</strong></div>
+</div>
 
-      <div class="caseCard">
-        <div class="caseHeader">
-          <h3>剪定・庭の整理事例</h3>
-        </div>
-        <div class="caseImgWrap">
-          <div class="casePhoto">施工前の写真を入れる</div>
-          <div class="casePhoto">施工後の写真を入れる</div>
-        </div>
-        <div class="caseNote">庭木や生垣を整えて、管理しやすくきれいな印象に仕上げます。</div>
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section>
-    <span class="sectionLabel">AREA</span>
-    <h2>対応エリア（中心）</h2>
-    <div class="areaBox">
-      <p class="subText">小川町・越生町・鳩山町・ときがわ町を中心に対応しております。近隣エリアもご相談ください。</p>
-      <div class="areaList">
-        <div class="areaItem">小川町</div>
-        <div class="areaItem">越生町</div>
-        <div class="areaItem">鳩山町</div>
-        <div class="areaItem">ときがわ町</div>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <section id="company">
-    <span class="sectionLabel">COMPANY</span>
-    <h2>会社概要</h2>
-    <div class="companyGrid">
-      <div class="companyBox companyInfo">
-        <dl>
-          <dt>会社名</dt><dd>OGAWA GREEN</dd>
-          <dt>代表者</dt><dd>小川知史</dd>
-          <dt>住所</dt><dd>埼玉県比企郡ときがわ町五明1120</dd>
-          <dt>電話番号</dt><dd>070-4402-0776</dd>
-          <dt>対応内容</dt><dd>庭の整理・草刈り・剪定・刈り込み・伐採・抜根・空き家管理</dd>
-        </dl>
-      </div>
-      <div class="map">
-        <iframe src="https://www.google.com/maps?q=埼玉県比企郡ときがわ町五明1120&output=embed" loading="lazy" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
+<div class="map">
 
-  <section>
-    <span class="sectionLabel">CONTACT</span>
-    <h2>お気軽にご相談ください</h2>
-    <div class="contactBox">
-      <p>庭の整理・草刈り・剪定・刈り込み・伐採・抜根・空き家管理など、お困りごとがありましたらお気軽にご相談ください。</p>
-      <div class="tel">070-4402-0776</div>
-      <div class="contactBtns">
-        <a class="btn" href="tel:07044020776">📞 電話する</a>
-        <a class="btnLine" href="https://line.me/ti/p/anfJ8Rhb2M">LINEで相談する</a>
-      </div>
-    </div>
-  </section>
+<iframe
+src="https://www.google.com/maps?q=埼玉県比企郡ときがわ町五明1120&output=embed">
+</iframe>
 
-</main>
+</div>
 
 <footer>
-  OGAWA GREEN
+
+OGAWA GREEN  
+代表 小川知史  
+埼玉県比企郡ときがわ町五明1120  
+
 </footer>
 
 <div class="fixedBar">
-  <a class="call" href="tel:07044020776">電話</a>
-  <a class="line" href="https://line.me/ti/p/anfJ8Rhb2M">LINE</a>
+<a class="call" href="tel:07044020776">電話</a>
+<a class="line" href="https://line.me">LINE</a>
 </div>
 
 <script>
-window.addEventListener('load', function(){
-  setTimeout(function(){
-    document.getElementById('loading').classList.add('hide');
-  }, 4500);
-});
 
-const bubbleSection = document.querySelector('.bubbleSection');
-const bubbles = document.querySelectorAll('.serviceBubble');
+setTimeout(()=>{
+document.getElementById("loading").classList.add("hide");
+},4500);
 
-if (bubbleSection && bubbles.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        bubbles.forEach((bubble, index) => {
-          setTimeout(() => {
-            bubble.classList.add('show');
-          }, index * 450);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.3
-  });
+const bubbles=document.querySelectorAll(".serviceBubble");
 
-  observer.observe(bubbleSection);
-}
+let i=0;
+
+setInterval(()=>{
+bubbles.forEach(b=>b.classList.remove("fadeOut"));
+bubbles[i].classList.add("fadeOut");
+i++;
+if(i>=bubbles.length)i=0;
+},2000);
+
 </script>
 
 </body>
